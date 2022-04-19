@@ -167,7 +167,7 @@ a:visited {
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: blue;
+  color: rgba(0, 0, 255, 0.911);
 }
 tr {
   width: 100vw;
