@@ -1,6 +1,5 @@
 <template>
   <div class="paginationpage">
-    
     <div class="container">
       <Pagination v-on:changeurll="changeurl($event)" />
       <div class="text-box">
@@ -25,34 +24,32 @@
           </tr>
         </table>
       </div>
+
+      <table border="1px" class="detail">
+        <tr>
+          <td>name</td>
+          <td>sex</td>
+          <td>age</td>
+          <td>email</td>
+          <td>guide_name</td>
+          <td>now_lic_no</td>
+          <td>office</td>
+          <td>tel</td>
+          <td>address</td>
+        </tr>
+        <tr>
+          <td>{{ detaillist.name }}</td>
+          <td>{{ detaillist.sex }}</td>
+          <td>{{ detaillist.age }}</td>
+          <td>{{ detaillist.email }}</td>
+          <td>{{ detaillist.guild_name }}</td>
+          <td>{{ detaillist.now_lic_no }}</td>
+          <td>{{ detaillist.office }}</td>
+          <td>{{ detaillist.tel }}</td>
+          <td>{{ detaillist.address }}</td>
+        </tr>
+      </table>
     </div>
-
-    <br /><br /><br />
-
-    <table border="1px" class="detail">
-      <tr>
-        <td>name</td>
-        <td>sex</td>
-        <td>age</td>
-        <td>email</td>
-        <td>guide_name</td>
-        <td>now_lic_no</td>
-        <td>office</td>
-        <td>tel</td>
-        <td>address</td>
-      </tr>
-      <tr>
-        <td>{{ detaillist.name }}</td>
-        <td>{{ detaillist.sex }}</td>
-        <td>{{ detaillist.age }}</td>
-        <td>{{ detaillist.email }}</td>
-        <td>{{ detaillist.guild_name }}</td>
-        <td>{{ detaillist.now_lic_no }}</td>
-        <td>{{ detaillist.office }}</td>
-        <td>{{ detaillist.tel }}</td>
-        <td>{{ detaillist.address }}</td>
-      </tr>
-    </table>
   </div>
 </template>
 
@@ -61,7 +58,7 @@ import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import Pagination from "./Pagination.vue";
-import ScrollReveal from "scrollreveal";
+// import ScrollReveal from "scrollreveal";
 
 Vue.use(VueAxios, axios);
 
@@ -80,13 +77,13 @@ export default {
     };
   },
   mounted() {
-    ScrollReveal({
-      reset: true,
-      distance: "30px",
-      duration: 1000,
-      interval: 0,
-    });
-    ScrollReveal().reveal(".detail", {  origin: "bottom" });
+    // ScrollReveal({
+    //   reset: true,
+    //   distance: "30px",
+    //   duration: 1000,
+    //   interval: 0,
+    // });
+    // ScrollReveal().reveal(".detail", {  origin: "bottom" });
 
     Vue.axios
       .get("http://140.123.174.200/api/Lawyer?CurrentPage=1")
@@ -100,7 +97,7 @@ export default {
       .then((resp) => {
         this.detaillist = resp.data;
       });
-      this.parallax();
+    this.parallax();
   },
   methods: {
     scrollto() {
@@ -109,12 +106,50 @@ export default {
 
       window.scrollTo({ top: target, behavior: "smooth" });
     },
-    changeurl(page) {
-      Vue.axios
-        .get("http://140.123.174.200/api/Lawyer?CurrentPage=" + page)
-        .then((resp) => {
-          this.list = resp.data.data;
-        });
+    changeurl({ page, sex }) {
+      if (sex == true && page != null) {
+        Vue.axios
+          .get(
+            "http://140.123.174.200/api/Lawyer?CurrentPage=" +
+              page +
+              "&Sort=sex"
+          )
+          .then((resp) => {
+            this.list = resp.data.data;
+            console.log(
+              "http://140.123.174.200/api/Lawyer?CurrentPage=" +
+                page +
+                "&Sort=sex"
+            );
+          });
+      } else if (sex == true && page == null) {
+        Vue.axios
+          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1" + "&Sort=sex")
+          .then((resp) => {
+            this.list = resp.data.data;
+            console.log(
+              "http://140.123.174.200/api/Lawyer?CurrentPage=1" + "&Sort=sex"
+            );
+          });
+      } else if (sex == false && page == null) {
+        Vue.axios
+          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1" )
+          .then((resp) => {
+            this.list = resp.data.data;
+            console.log(
+              "http://140.123.174.200/api/Lawyer?CurrentPage=1"
+            );
+          });
+      } else {
+        Vue.axios
+          .get("http://140.123.174.200/api/Lawyer?CurrentPage=" + page)
+          .then((resp) => {
+            this.list = resp.data.data;
+            console.log(
+              "http://140.123.174.200/api/Lawyer?CurrentPage=" + page
+            );
+          });
+      }
     },
     detail(par) {
       Vue.axios.get("http://140.123.174.200/api/Lawyer/" + par).then((resp) => {
@@ -134,13 +169,16 @@ export default {
 
 <style scoped>
 .container {
-  background: url(https://jw-webmagazine.com/wp-content/uploads/2019/06/jw-5d15da96c49484.64193252.jpeg);
+  background-color: rgb(156, 153, 153);
   height: 150vh;
   background-size: contain;
-  background-position-y: -100px;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
+
 .text-box {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
@@ -150,6 +188,7 @@ export default {
 }
 .paginationpage {
   margin-top: 10vh;
+  height: 20vh;
 }
 
 a,
@@ -161,7 +200,7 @@ a:visited {
   background-color: rgb(255, 255, 255);
 }
 .data:nth-child(2n) {
-  background-color: rgba(252, 198, 149,0.7);
+  background-color: rgba(252, 198, 149, 0.7);
 }
 .data button {
   background: transparent;
@@ -191,7 +230,7 @@ table {
   background-color: rgb(255, 255, 255);
 }
 .detail {
-  margin-top: 30vh;
-  margin-bottom: 30vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 </style>

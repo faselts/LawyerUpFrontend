@@ -4,8 +4,8 @@
       <div class="logo">
         <div class="formAbsolute">
           <div class="form">
-            <form @submit="postData" method="post" id="form">
-              <input type="text" name="search" autocomplete="none" v-model="input.search" required />
+            <form @submit="postData"  id="form">
+              <input type="text" name="search" autocomplete="none" v-model="query" required />
               <button type="submit"></button>
             </form>
             <label for="name" class="label-name" id="label-name">
@@ -17,7 +17,7 @@
       <ul class="nav-links">
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/works">Works</router-link></li>
+        <li><router-link to="/works" result="result">Works</router-link></li>
         <li><router-link to="/contactus">Contact Us</router-link></li>
       </ul>
       <div class="burger">
@@ -26,7 +26,9 @@
         <div class="line3"></div>
       </div>
     </nav>
+    <Title/>
     <router-view></router-view>
+    
   </div>
 </template>
 
@@ -35,15 +37,22 @@ import TimelineLite from "gsap";
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import Title from "../components/Title.vue";
 
 Vue.use(VueAxios, axios);
 
 export default {
   name: "NavBar",
+  components:{
+    Title,
+  },
   data() {
     return {
-      input:{
-        search:null
+      query:null,
+      result:{
+        first:null,
+        second:null,
+        third:null
       }
     };
   },
@@ -55,9 +64,19 @@ export default {
     // this.backcolor();
   },
   methods: {
-    postData(e){
-      // console.warn("http://140.123.174.200/api/Lawyer")
-      e.preventDefault();
+     async postData(){
+       window.alert("predicting...")/*jump alert out*/ 
+       this.$router.push({ path : '../works' });
+      await axios.post('http://140.123.174.200/api/PredictionModel',{query:JSON.stringify(this.query)}
+      ).then(response => {
+      this.result.first=response.data.first,
+      this.result.second=response.data.second,
+      this.result.third=response.data.third,
+      console.log(this.result)
+      }).catch(error => 
+      console.error("There was an error!", error)
+    );
+    
     },
     clickburger() {
       const navSlide = () => {

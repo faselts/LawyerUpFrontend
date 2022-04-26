@@ -1,7 +1,8 @@
 <template>
   <div class="canvas">
-    <div class="container">
+    <div class="container" >
       <h2>LawyerUP</h2>
+
       <div class="block"></div>
       <div class="block"></div>
       <div class="block"></div>
@@ -23,6 +24,7 @@
       <div class="block"></div>
       <div class="block"></div>
       <div class="block"></div>
+
       <div class="block"></div>
       <div class="block"></div>
       <div class="block"></div>
@@ -44,43 +46,7 @@
       <div class="block"></div>
       <div class="block"></div>
       <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
-      <div class="block"></div>
+
       <div class="block"></div>
       <div class="block"></div>
       <div class="block"></div>
@@ -108,37 +74,47 @@
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.es.js';
+import anime from "animejs/lib/anime.es.js";
 
 export default {
   name: "Title",
-  mounted() {
-      setTimeout(this.title,300)
-  },
-  methods:{
-      title(){
-          (function animateBlocks(){
-          anime({
-              targets:'.block',
-              translateX: function(){
-                  return anime.random(-700,700);
-              },
-              translateY: function(){
-                  return anime.random(-500,500);
-              },
-              scale:function(){
-                  return anime.random(1,5)
-              },
 
-              endDelay:500,
-              easing: 'linear',
-              duration: 4000,
-              delay: anime.stagger(20),
-              complete: animateBlocks,
-          })
-      })()
-      }
-  }
+  mounted() {
+    this.title();
+   
+  },
+  destroyed() {
+  console.log('destroyed')
+},
+  methods: {
+    title() {
+      (function animateBlocks() {
+        
+          anime({
+            targets: ".block",
+            translateX: function () {
+              return anime.random(-700, 700);
+            },
+            translateY: function () {
+              return anime.random(-500, 500);
+            },
+            scale: function () {
+              return anime.random(1, 5);
+            },
+
+            endDelay: 500,
+            easing: "linear",
+            duration: 4000,
+            delay: anime.stagger(20),
+            complete: animateBlocks,
+          });
+        
+
+      })();
+     
+    },
+  },
+  
 };
 </script>
 
@@ -150,12 +126,11 @@ export default {
   font-family: "poppins", sans-serif;
 }
 
-.block{
-    position: absolute;
-    width: 50px;
-    height: 100px;
-    background: linear-gradient(#f7984b, #ffeb7b);  
-    box-shadow: 10px 10px 50px rgba(0,0,0,0.1);
+.block {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  background: linear-gradient(#f7984b, #ffeb7b);
 }
 .canvas {
   margin-top: 10vh;
@@ -165,10 +140,10 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: 110vh;
-  background: linear-gradient(#f7984b, #ffeb7b); 
+  background: linear-gradient(#f7984b, #ffeb7b);
 }
 .container {
-  position: absolute;
+  
   width: 100%;
   height: 100%;
   display: flex;
@@ -184,6 +159,4 @@ h2 {
   z-index: 1;
   transform: translateY(-7vh);
 }
-
-
 </style>

@@ -3,21 +3,26 @@
     <Intro/>
     
     <NavBar/>
+ 
   </div>
 </template>
 
 <script>
 import Intro from "./components/Intro.vue";
 
+
 import NavBar from "./components/NavBar.vue";
 
 
 export default {
   name: "App",
+  
   components: {
     Intro,
     NavBar,
   },
+  
+  
 }
 </script>
 

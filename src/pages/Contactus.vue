@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="tablelist">
         <Unit/>
     </div>
 </template>
@@ -16,4 +16,9 @@ export default {
 </script>
 
 <style scoped>
+.tablelist{
+    transform: translateY(-120vh);
+    position: absolute;
+    z-index: 1;
+}
 </style>

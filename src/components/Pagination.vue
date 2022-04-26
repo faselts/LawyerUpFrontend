@@ -1,7 +1,8 @@
 <template>
   <div class="pagination">
-    <select name="select" id="select" v-model="input.page"></select>
-    <button @click="GoTo"></button>
+    <select  id="select" v-model="input.page" v-on:change="GoTo"></select>
+    <input type="checkbox" name="sex" v-model="input.sex" v-on:change="GoTo">
+    <label for="sex">Gender</label>
   </div>
 </template>
 
@@ -17,7 +18,9 @@ export default {
   data(){
     return{
       input:{
-        page:null
+        page:null,
+        sex:null,
+        name:null
       }
     }
   },
@@ -39,13 +42,18 @@ export default {
   },
   methods:{
      GoTo(){
-      this.$emit('changeurll',this.input.page)
-    }
+      this.$emit('changeurll',{page:this.input.page,sex:this.input.sex})
+    },
+    
   }
 };
 </script>
 
 <style scoped>
+.pagination{
+  width: 100vw;
+  height: 100vh;
+}
 button {
   width: 100px;
   height: 100px;

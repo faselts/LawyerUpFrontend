@@ -1,25 +1,25 @@
 <template>
   <div class="main">
-    <Title/>
-    <Body2/>
-    <Footer/>
+   
+    <Body2 />
+    <Footer />
     <!-- <Unit/> -->
   </div>
 </template>
 
 <script>
-
 import Body2 from "../components/Body2.vue";
-import Title from "../components/Title.vue";
-import Footer from "../components/Footer.vue"
+
+import Footer from "../components/Footer.vue";
 
 export default {
   name: "Animation",
-  components:{
-      Title,
-      Body2,
-      Footer
-      // Unit
+  
+  components: {
+   
+    Body2,
+    Footer,
+    // Unit
   },
   
 };
@@ -31,7 +31,6 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .intro {
   display: flex;
@@ -57,5 +56,4 @@ export default {
   transform: translateY(100%);
   display: inline-block;
 }
-
 </style>
