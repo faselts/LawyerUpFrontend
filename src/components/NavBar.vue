@@ -84,7 +84,7 @@ export default {
       this.$router.push({ path: "../works" });
       await axios
         .post("http://140.123.174.200/api/Search", {
-          searchQuery: JSON.stringify(this.query),
+          searchQuery: this.query,
         })
         .then((resp) => {
          
@@ -93,7 +93,7 @@ export default {
         .catch((error) => console.error("There was an error!", error));
       axios
         .post("http://140.123.174.200/api/PredictionModel", {
-          query: JSON.stringify(this.query),
+          query: this.query,
         })
         .then((response) => {
           (this.$store.state.resultp.first = response.data.first),
