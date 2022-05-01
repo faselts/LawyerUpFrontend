@@ -4,8 +4,14 @@
       <div class="logo">
         <div class="formAbsolute">
           <div class="form">
-            <form @submit="postData"  id="form">
-              <input type="text" name="search" autocomplete="none" v-model="query" required />
+            <form @submit.prevent="postData" id="form">
+              <input
+                type="text"
+                name="search"
+                autocomplete="none"
+                v-model="query"
+                required
+              />
               <button type="submit"></button>
             </form>
             <label for="name" class="label-name" id="label-name">
@@ -26,9 +32,9 @@
         <div class="line3"></div>
       </div>
     </nav>
-    <Title/>
-    <router-view></router-view>
     
+    <Title />
+    <router-view></router-view>
   </div>
 </template>
 
@@ -43,17 +49,21 @@ Vue.use(VueAxios, axios);
 
 export default {
   name: "NavBar",
-  components:{
+  components: {
     Title,
+  },
+  computed:{
+
   },
   data() {
     return {
-      query:null,
-      result:{
-        first:null,
-        second:null,
-        third:null
-      }
+      query: null,
+      resultp: {
+        first: null,
+        second: null,
+        third: null,
+      },
+      results: undefined,
     };
   },
   mounted() {
@@ -64,19 +74,36 @@ export default {
     // this.backcolor();
   },
   methods: {
-     async postData(){
-       window.alert("predicting...")/*jump alert out*/ 
-       this.$router.push({ path : '../works' });
-      await axios.post('http://140.123.174.200/api/PredictionModel',{query:JSON.stringify(this.query)}
-      ).then(response => {
-      this.result.first=response.data.first,
-      this.result.second=response.data.second,
-      this.result.third=response.data.third,
-      console.log(this.result)
-      }).catch(error => 
-      console.error("There was an error!", error)
-    );
-    
+    turn() {
+      axios
+        .post("", {})
+        .then(() => {})
+        .catch((error) => console.error("There was an error!", error));
+    },
+    async postData() {
+      window.alert("predicting..."); /*jump alert out*/
+      this.$router.push({ path: "../works" });
+      await axios
+        .post("http://140.123.174.200/api/Search", {
+          searchQuery: JSON.stringify(this.query),
+        })
+        .then((resp) => {
+         
+          console.log(resp);
+        })
+        .catch((error) => console.error("There was an error!", error));
+      axios
+        .post("http://140.123.174.200/api/PredictionModel", {
+          query: JSON.stringify(this.query),
+        })
+        .then((response) => {
+          (this.$store.state.resultp.first = response.data.first),
+            (this.$store.state.resultp.second = response.data.second),
+            (this.$store.state.resultp.third = response.data.third);
+            // console.log(this.resultp);
+        })
+        .catch((error) => console.error("There was an error!", error));
+       window.alert("finished!");
     },
     clickburger() {
       const navSlide = () => {
@@ -104,10 +131,10 @@ export default {
     fullpage() {
       TimelineLite.fromTo(
         ".navbar",
-        1.,
+        1,
         { y: "-10vh", opacity: 0 },
         { y: "0%", opacity: 1, ease: TimelineLite.easeInOut },
-        "+=1"
+        "+=0.8"
       );
     },
     scroll() {
@@ -134,7 +161,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-button {
+
+
+
+form button {
   width: 2rem;
   height: 2rem;
   background: transparent;
