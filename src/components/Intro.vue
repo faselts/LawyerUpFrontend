@@ -24,7 +24,7 @@ export default {
   mounted() {
     this.fullpage();
     // setTimeout(this.typing, 3000);
-    setTimeout(this.add, 4000);
+    setTimeout(this.add, 3500);
   },
   methods: {
     fullpage() {

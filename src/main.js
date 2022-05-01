@@ -10,10 +10,9 @@ import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Works from './pages/Works.vue'
 import Contactus from './pages/Contactus.vue'
-import Vuex from 'vuex'
+import store from './store'
 
 
-Vue.use(Vuex)
 
 Vue.use(VueRouter)
 
@@ -39,6 +38,7 @@ const router = new VueRouter({
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router:router,
   render: h => h(App),
 }).$mount('#app')

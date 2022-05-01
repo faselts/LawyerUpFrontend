@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Intro/>
+    <!-- <Intro/> -->
     
     <NavBar/>
  
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Intro from "./components/Intro.vue";
+// import Intro from "./components/Intro.vue";
 
 
 import NavBar from "./components/NavBar.vue";
@@ -18,7 +18,7 @@ export default {
   name: "App",
   
   components: {
-    Intro,
+    // Intro,
     NavBar,
   },
   
