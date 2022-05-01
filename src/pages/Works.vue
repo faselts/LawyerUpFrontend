@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>hello</h1>
+        <h1>{{result}}}</h1>
     </div>
 </template>
 
@@ -11,10 +11,10 @@ export default {
     name: "Works",
     mounted(){
         console.log(this.result)
-        console.log("oops")
+        //console.log("oops")
     },
     props:{
-        result:undefined
+        result:Object
     }
 }
 </script>

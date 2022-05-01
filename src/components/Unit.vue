@@ -1,15 +1,17 @@
 <template>
   <div class="paginationpage">
     <div class="container">
-      <Pagination v-on:changeurll="changeurl($event)" />
+          <Pagination v-on:changeurll="changeurl($event)" />
+
       <div class="text-box">
+        
         <table>
           <tr class="cate">
-            <td align="center">name</td>
-            <td align="center">sex</td>
-            <td align="center">guide_name</td>
-            <td align="center">email</td>
-            <td align="center">tel</td>
+            <td align="center">姓名</td>
+            <td align="center">性別</td>
+            <td align="center">公會</td>
+            <td align="center">Email</td>
+            <td align="center">電話</td>
           </tr>
           <tr v-for="item in list" :key="item.id" class="data">
             <td class>
@@ -23,19 +25,23 @@
             <td class>{{ item.tel }}</td>
           </tr>
         </table>
+        
+
+
+
       </div>
 
       <table border="1px" class="detail">
         <tr>
-          <td>name</td>
-          <td>sex</td>
-          <td>age</td>
-          <td>email</td>
-          <td>guide_name</td>
-          <td>now_lic_no</td>
-          <td>office</td>
-          <td>tel</td>
-          <td>address</td>
+          <td>姓名</td>
+          <td>性別</td>
+          <td>年紀</td>
+          <td>Email</td>
+          <td>公會</td>
+          <td>律師證號</td>
+          <td>律師辦公室</td>
+          <td>電話</td>
+          <td>地址</td>
         </tr>
         <tr>
           <td>{{ detaillist.name }}</td>
@@ -86,17 +92,17 @@ export default {
     // ScrollReveal().reveal(".detail", {  origin: "bottom" });
 
     Vue.axios
-      .get("http://140.123.174.200/api/Lawyer?CurrentPage=1")
+      .get("http://140.123.174.200/api/Lawyer")
       .then((resp) => {
         this.list = resp.data.data;
       });
-    Vue.axios
+    /* Vue.axios
       .get(
         "http://140.123.174.200/api/Lawyer/591630e6-1b58-47a9-bb40-1292a902906d"
       )
       .then((resp) => {
         this.detaillist = resp.data;
-      });
+      }); */
     this.parallax();
   },
   methods: {
@@ -107,49 +113,20 @@ export default {
       window.scrollTo({ top: target, behavior: "smooth" });
     },
     changeurl({ page, sex }) {
-      if (sex == true && page != null) {
-        Vue.axios
-          .get(
-            "http://140.123.174.200/api/Lawyer?CurrentPage=" +
-              page +
-              "&Sort=sex"
-          )
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=" +
-                page +
-                "&Sort=sex"
-            );
-          });
-      } else if (sex == true && page == null) {
-        Vue.axios
-          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1" + "&Sort=sex")
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=1" + "&Sort=sex"
-            );
-          });
-      } else if (sex == false && page == null) {
-        Vue.axios
-          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1" )
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=1"
-            );
-          });
-      } else {
-        Vue.axios
-          .get("http://140.123.174.200/api/Lawyer?CurrentPage=" + page)
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=" + page
-            );
-          });
+      let url = "http://140.123.174.200/api/Lawyer?CurrentPage=";
+      let sexString = "";
+      if(page==null){
+        page = 1;
       }
+      if(sex == true){
+        sexString = "&Sort=sex";
+      }
+      url = url + page + sexString;
+      VueAxios.get(url)
+      .then((resp) => {
+            this.list = resp.data.data;
+            console.log(url);
+          });
     },
     detail(par) {
       Vue.axios.get("http://140.123.174.200/api/Lawyer/" + par).then((resp) => {
@@ -185,6 +162,7 @@ export default {
   padding: 40px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+  margin-top: 10vh;
 }
 .paginationpage {
   margin-top: 10vh;

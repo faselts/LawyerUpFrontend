@@ -18,10 +18,19 @@ Vue.use(Vuex)
 Vue.use(VueRouter)
 
 const routes=[
-  {path:'/',component:Home},
-  {path:'/about',component:About},
-  {path:'/works',component:Works},
-  {path:'/contactus',component:Contactus},
+  {path:'/',
+  name:'Home',
+  component:Home},
+  {path:'/about',
+  name:'about',
+  component:About},
+  {path:'/search',
+  name:'SearchResult',
+  component:Works,
+  props: (route) => route.params},
+  {path:'/lawyer',
+  name:'Lawyer',
+  component:Contactus},
   // {path:'*', component:PageNotFound}
 ]
 const router = new VueRouter({

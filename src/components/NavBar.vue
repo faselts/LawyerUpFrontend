@@ -4,7 +4,7 @@
       <div class="logo">
         <div class="formAbsolute">
           <div class="form">
-            <form @submit="postData"  id="form">
+            <form @submit.prevent="postData"  id="form">
               <input type="text" name="search" autocomplete="none" v-model="query" required />
               <button type="submit"></button>
             </form>
@@ -17,8 +17,7 @@
       <ul class="nav-links">
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/works" result="result">Works</router-link></li>
-        <li><router-link to="/contactus">Contact Us</router-link></li>
+        <li><router-link to="/lawyer">律師</router-link></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -66,13 +65,14 @@ export default {
   methods: {
      async postData(){
        window.alert("predicting...")/*jump alert out*/ 
-       this.$router.push({ path : '../works' });
+       
       await axios.post('http://140.123.174.200/api/PredictionModel',{query:JSON.stringify(this.query)}
       ).then(response => {
       this.result.first=response.data.first,
       this.result.second=response.data.second,
       this.result.third=response.data.third,
       console.log(this.result)
+      this.$router.push({ name:'SearchResult',params:{result:this.result} });
       }).catch(error => 
       console.error("There was an error!", error)
     );
