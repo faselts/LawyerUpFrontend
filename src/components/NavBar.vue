@@ -4,10 +4,6 @@
       <div class="logo">
         <div class="formAbsolute">
           <div class="form">
-<<<<<<< HEAD
-            <form @submit.prevent="postData"  id="form">
-              <input type="text" name="search" autocomplete="none" v-model="query" required />
-=======
             <form @submit.prevent="postData" id="form">
               <input
                 type="text"
@@ -16,7 +12,6 @@
                 v-model="query"
                 required
               />
->>>>>>> c0fd4962e5f5ce927964c1fc23d8d060b842baf1
               <button type="submit"></button>
             </form>
             <label for="name" class="label-name" id="label-name">
@@ -78,22 +73,6 @@ export default {
     // this.backcolor();
   },
   methods: {
-<<<<<<< HEAD
-     async postData(){
-       window.alert("predicting...")/*jump alert out*/ 
-       
-      await axios.post('http://140.123.174.200/api/PredictionModel',{query:JSON.stringify(this.query)}
-      ).then(response => {
-      this.result.first=response.data.first,
-      this.result.second=response.data.second,
-      this.result.third=response.data.third,
-      console.log(this.result)
-      this.$router.push({ name:'SearchResult',params:{result:this.result} });
-      }).catch(error => 
-      console.error("There was an error!", error)
-    );
-    
-=======
     turn() {
       axios
         .post("", {})
@@ -124,7 +103,6 @@ export default {
         })
         .catch((error) => console.error("There was an error!", error));
        window.alert("finished!");
->>>>>>> c0fd4962e5f5ce927964c1fc23d8d060b842baf1
     },
     clickburger() {
       const navSlide = () => {

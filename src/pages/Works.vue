@@ -1,8 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div>
-        <h1>{{result}}}</h1>
-=======
     <div class="result">
       <div class="first">
         <button @click="turn(resultp.first)">
@@ -19,7 +15,6 @@
           {{ this.$store.state.resultp.third }}
         </button>
       </div>
->>>>>>> c0fd4962e5f5ce927964c1fc23d8d060b842baf1
     </div>
 </template>
 
@@ -32,18 +27,9 @@ export default {
         
     },
     mounted(){
-<<<<<<< HEAD
-        console.log(this.result)
-        //console.log("oops")
-    },
-    props:{
-        result:Object
-    }
-=======
         
     },
     
->>>>>>> c0fd4962e5f5ce927964c1fc23d8d060b842baf1
 }
 </script>
 
