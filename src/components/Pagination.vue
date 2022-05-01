@@ -51,14 +51,19 @@ export default {
 
 <style scoped>
 .pagination{
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 40px;
+  margin-left: 1vw;
 }
-button {
-  width: 100px;
-  height: 100px;
-}
+
 select {
-  width: 50px;
+  height: 30px;
+  width: 140px;
+  border-radius: 7px;
+  margin-right: 2rem;
+  background-color: #4d5061;
+  color: white;
+  padding-left: 10px;
 }
+
 </style>

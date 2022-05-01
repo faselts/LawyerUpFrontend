@@ -1,8 +1,8 @@
 <template>
   <div class="paginationpage">
     <div class="container">
-      <Pagination v-on:changeurll="changeurl($event)" />
-      <div class="text-box">
+      
+      <!-- <div class="text-box">
         <table>
           <tr class="cate">
             <td align="center">name</td>
@@ -23,6 +23,24 @@
             <td class>{{ item.tel }}</td>
           </tr>
         </table>
+      </div> -->
+
+      <div class="text-box">
+        <Pagination v-on:changeurll="changeurl($event)" />
+        <div v-for="item in list" :key="item.id" class="data">
+          
+          <div class="information">
+            <div class="space name">
+            <button @click="detail(item.id), scrollto()">
+              {{ item.name }}
+            </button>
+          </div>
+            <div class="space sex">{{ item.sex }}</div>
+            <div class="space guild_name">{{ item.guild_name }}</div>
+            <div class="space email">{{ item.email }}</div>
+            <div class="space tel">{{ item.tel }}</div>
+          </div>
+        </div>
       </div>
 
       <table border="1px" class="detail">
@@ -133,12 +151,10 @@ export default {
           });
       } else if (sex == false && page == null) {
         Vue.axios
-          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1" )
+          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1")
           .then((resp) => {
             this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=1"
-            );
+            console.log("http://140.123.174.200/api/Lawyer?CurrentPage=1");
           });
       } else {
         Vue.axios
@@ -168,6 +184,22 @@ export default {
 </script>
 
 <style scoped>
+.information {
+  display: flex;
+  min-width: 700px;
+}
+.space{
+  min-width: 10vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.email{
+  width: 20vw;
+}
+
+
 .container {
   background-color: rgb(156, 153, 153);
   height: 150vh;
@@ -182,13 +214,15 @@ export default {
 .text-box {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
-  padding: 40px;
+  padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+  
 }
 .paginationpage {
   margin-top: 10vh;
   height: 20vh;
+  width: 100vw;
 }
 
 a,
@@ -196,11 +230,12 @@ a:visited {
   color: blue;
   text-decoration: none;
 }
-.data:nth-child(2n + 1) {
-  background-color: rgb(255, 255, 255);
-}
-.data:nth-child(2n) {
-  background-color: rgba(252, 198, 149, 0.7);
+.data {
+  width: 60vw;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: white;
 }
 .data button {
   background: transparent;
@@ -208,15 +243,15 @@ a:visited {
   font-size: 1.5rem;
   color: rgba(0, 0, 255, 0.911);
 }
-tr {
+/* tr {
   width: 100vw;
 }
 td {
   font-family: "poppins", sans-serif;
   font-size: 1.25rem;
   padding: 1rem;
-}
-.cate tr {
+} */
+/* .cate tr {
   font-size: 1rem;
   justify-content: center;
   align-items: center;
@@ -224,11 +259,11 @@ td {
 .cate td {
   justify-content: center;
   align-items: center;
-}
-table {
+} */
+/* table {
   margin: auto;
   background-color: rgb(255, 255, 255);
-}
+} */
 .detail {
   margin-top: 10vh;
   margin-bottom: 10vh;

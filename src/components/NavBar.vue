@@ -8,7 +8,7 @@
               <input
                 type="text"
                 name="search"
-                autocomplete="none"
+                autocomplete="off"
                 v-model="query"
                 required
               />
@@ -82,16 +82,16 @@ export default {
     },
     async postData() {
       window.alert("predicting..."); /*jump alert out*/
-      this.$router.push({ path: "../works" });
-      await axios
-        .post("http://140.123.174.200/api/Search", {
-          searchQuery: JSON.stringify(this.query),
-        })
-        .then((resp) => {
+      
+      // await axios
+      //   .post("http://140.123.174.200/api/Search", {
+      //     searchQuery: JSON.stringify(this.query),
+      //   })
+      //   .then(() => {
          
-          console.log(resp);
-        })
-        .catch((error) => console.error("There was an error!", error));
+      //     // console.log(resp);
+      //   })
+      //   .catch((error) => console.error("There was an error!", error));
       axios
         .post("http://140.123.174.200/api/PredictionModel", {
           query: JSON.stringify(this.query),
@@ -100,10 +100,11 @@ export default {
           (this.$store.state.resultp.first = response.data.first),
             (this.$store.state.resultp.second = response.data.second),
             (this.$store.state.resultp.third = response.data.third);
-            // console.log(this.resultp);
+            console.log(response);
+            window.alert("finished!");
         })
         .catch((error) => console.error("There was an error!", error));
-       window.alert("finished!");
+       
     },
     clickburger() {
       const navSlide = () => {

@@ -167,7 +167,7 @@ export default {
 }
 .canvas {
   background: rgb(5, 5, 5);
-  height: 320vh;
+  height: 290vh;
   width: 100vw;
 }
 section {
