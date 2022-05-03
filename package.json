@@ -25,6 +25,7 @@
     "vue-animejs": "^2.1.1",
     "vue-axios": "^3.4.1",
     "vue-media": "^1.1.1",
+    "vue-resource": "^1.5.3",
     "vue-router": "^3.5.3",
     "vuex": "^3.6.2"
   },

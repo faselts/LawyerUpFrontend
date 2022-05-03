@@ -125,6 +125,9 @@ export default {
   display: flex;
   min-width: 700px;
 }
+button{
+  cursor: pointer;
+}
 /* .data:hover{
   background-color: rgb(147, 241, 248);
   
