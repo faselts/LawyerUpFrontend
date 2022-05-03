@@ -83,7 +83,8 @@ export default {
         .then((resp) => {
           console.log(resp.data);
           this.$store.state.results = resp.data.data;
-        });
+          
+        })
       //   }
     },
   },
@@ -142,6 +143,7 @@ button {
   background-color: rgb(43, 43, 43);
   color: white;
   border: none;
+  cursor: pointer;
 }
 .record{
     width: 60vw;

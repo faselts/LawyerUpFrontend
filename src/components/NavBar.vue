@@ -47,9 +47,7 @@ Vue.use(VueAxios, axios);
 export default {
   name: "NavBar",
   components: {},
-  computed: {
-    
-  },
+  computed: {},
   data() {
     return {
       resultp: {
@@ -87,6 +85,12 @@ export default {
           console.log(resp.data);
           this.$store.state.results = resp.data.data;
         })
+        .catch(function (error) {
+          if (error.response) {
+            console.log(error.response.status);
+            window.alert("無資料");
+          }
+        });
 
       axios
         .post("http://140.123.174.200/api/PredictionModel", {
@@ -99,7 +103,7 @@ export default {
           console.log(response);
           window.alert("finished!");
         })
-        .catch((error) => console.error("There was an error!", error));
+      
     },
     clickburger() {
       const navSlide = () => {
