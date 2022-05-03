@@ -1,29 +1,22 @@
 <template>
   <div id="app">
-    <!-- <Intro/> -->
-    
-    <NavBar/>
- 
+    <NavBar />
+    <Footer />
   </div>
 </template>
 
 <script>
-// import Intro from "./components/Intro.vue";
-
-
+import Footer from "./components/Footer.vue";
 import NavBar from "./components/NavBar.vue";
-
 
 export default {
   name: "App",
-  
+
   components: {
-    // Intro,
     NavBar,
+    Footer
   },
-  
-  
-}
+};
 </script>
 
 <style>
@@ -32,14 +25,13 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-body{
-   overflow-x: hidden;
-   min-width: 940px;
-  }
-  ::-webkit-scrollbar {
-    display: none;
+body {
+  overflow-x: hidden;
+  min-width: 940px;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
 </style>
 
 

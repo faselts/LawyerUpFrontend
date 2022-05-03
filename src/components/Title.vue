@@ -40,9 +40,6 @@ export default {
     ScrollReveal().reveal(".sixthpic", { delay: 250, origin: "right" ,distance:"300px"});
     
   },
-  destroyed() {
-    console.log("destroyed");
-  },
   methods: {
     title() {
       (function animateBlocks() {

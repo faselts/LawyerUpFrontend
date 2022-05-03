@@ -1,60 +1,21 @@
 <template>
   <div class="paginationpage">
     <div class="container">
-<<<<<<< HEAD
-      
-      <!-- <div class="text-box">
-=======
-          <Pagination v-on:changeurll="changeurl($event)" />
-
       <div class="text-box">
-        
->>>>>>> 23901ff4f91c2f8e900cb2620e105bbd0396cd40
-        <table>
-          <tr class="cate">
-            <td align="center">姓名</td>
-            <td align="center">性別</td>
-            <td align="center">公會</td>
-            <td align="center">Email</td>
-            <td align="center">電話</td>
-          </tr>
-          <tr v-for="item in list" :key="item.id" class="data">
-            <td class>
+        <Pagination v-on:changeurll="changeurl($event)" />
+        <div v-for="item in list" :key="item.id" class="data" >
+          <div class="information">
+            <div class="space name">
               <button @click="detail(item.id), scrollto()">
                 {{ item.name }}
               </button>
-            </td>
-            <td class>{{ item.sex }}</td>
-            <td class>{{ item.guild_name }}</td>
-            <td class>{{ item.email }}</td>
-            <td class>{{ item.tel }}</td>
-          </tr>
-        </table>
-<<<<<<< HEAD
-      </div> -->
-
-      <div class="text-box">
-        <Pagination v-on:changeurll="changeurl($event)" />
-        <div v-for="item in list" :key="item.id" class="data">
-          
-          <div class="information">
-            <div class="space name">
-            <button @click="detail(item.id), scrollto()">
-              {{ item.name }}
-            </button>
-          </div>
+            </div>
             <div class="space sex">{{ item.sex }}</div>
             <div class="space guild_name">{{ item.guild_name }}</div>
             <div class="space email">{{ item.email }}</div>
             <div class="space tel">{{ item.tel }}</div>
           </div>
         </div>
-=======
-        
-
-
-
->>>>>>> 23901ff4f91c2f8e900cb2620e105bbd0396cd40
       </div>
 
       <table border="1px" class="detail">
@@ -90,7 +51,7 @@ import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import Pagination from "./Pagination.vue";
-// import ScrollReveal from "scrollreveal";
+// import anime from 'animejs/lib/anime.es.js';
 
 Vue.use(VueAxios, axios);
 
@@ -109,29 +70,15 @@ export default {
     };
   },
   mounted() {
-    // ScrollReveal({
-    //   reset: true,
-    //   distance: "30px",
-    //   duration: 1000,
-    //   interval: 0,
-    // });
-    // ScrollReveal().reveal(".detail", {  origin: "bottom" });
-
     Vue.axios
       .get("http://140.123.174.200/api/Lawyer")
       .then((resp) => {
         this.list = resp.data.data;
       });
-    /* Vue.axios
-      .get(
-        "http://140.123.174.200/api/Lawyer/591630e6-1b58-47a9-bb40-1292a902906d"
-      )
-      .then((resp) => {
-        this.detaillist = resp.data;
-      }); */
     this.parallax();
   },
   methods: {
+    
     scrollto() {
       var element = document.querySelector(".detail");
       var target = element.offsetTop;
@@ -139,62 +86,22 @@ export default {
       window.scrollTo({ top: target, behavior: "smooth" });
     },
     changeurl({ page, sex }) {
-<<<<<<< HEAD
-      if (sex == true && page != null) {
-        Vue.axios
-          .get(
-            "http://140.123.174.200/api/Lawyer?CurrentPage=" +
-              page +
-              "&Sort=sex"
-          )
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=" +
-                page +
-                "&Sort=sex"
-            );
-          });
-      } else if (sex == true && page == null) {
-        Vue.axios
-          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1" + "&Sort=sex")
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=1" + "&Sort=sex"
-            );
-          });
-      } else if (sex == false && page == null) {
-        Vue.axios
-          .get("http://140.123.174.200/api/Lawyer?CurrentPage=1")
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log("http://140.123.174.200/api/Lawyer?CurrentPage=1");
-          });
-      } else {
-        Vue.axios
-          .get("http://140.123.174.200/api/Lawyer?CurrentPage=" + page)
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              "http://140.123.174.200/api/Lawyer?CurrentPage=" + page
-            );
-          });
-=======
       let url = "http://140.123.174.200/api/Lawyer?CurrentPage=";
       let sexString = "";
       if(page==null){
         page = 1;
->>>>>>> 23901ff4f91c2f8e900cb2620e105bbd0396cd40
       }
       if(sex == true){
         sexString = "&Sort=sex";
       }
       url = url + page + sexString;
-      VueAxios.get(url)
-      .then((resp) => {
+       Vue.axios
+          .get(url)
+          .then((resp) => {
             this.list = resp.data.data;
-            console.log(url);
+            console.log(
+              resp
+            );
           });
     },
     detail(par) {
@@ -218,20 +125,28 @@ export default {
   display: flex;
   min-width: 700px;
 }
-.space{
+/* .data:hover{
+  background-color: rgb(147, 241, 248);
+  
+} */
+.space {
   min-width: 10vw;
   height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.email{
+.email {
   width: 20vw;
 }
+.data:hover{
+  background-color: rgb(143, 210, 255);
+  transform: scale(1.05);
+  transition:  0.4s ease;
 
-
+}
 .container {
-  background-color: rgb(156, 153, 153);
+  background-color: #646670;
   height: 150vh;
   background-size: contain;
   justify-content: center;
@@ -247,15 +162,10 @@ export default {
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-<<<<<<< HEAD
-  
-=======
-  margin-top: 10vh;
->>>>>>> 23901ff4f91c2f8e900cb2620e105bbd0396cd40
 }
 .paginationpage {
   margin-top: 10vh;
-  height: 20vh;
+  height: 140vh;
   width: 100vw;
 }
 
@@ -277,27 +187,6 @@ a:visited {
   font-size: 1.5rem;
   color: rgba(0, 0, 255, 0.911);
 }
-/* tr {
-  width: 100vw;
-}
-td {
-  font-family: "poppins", sans-serif;
-  font-size: 1.25rem;
-  padding: 1rem;
-} */
-/* .cate tr {
-  font-size: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-.cate td {
-  justify-content: center;
-  align-items: center;
-} */
-/* table {
-  margin: auto;
-  background-color: rgb(255, 255, 255);
-} */
 .detail {
   margin-top: 10vh;
   margin-bottom: 10vh;

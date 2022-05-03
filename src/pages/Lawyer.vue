@@ -8,7 +8,7 @@
 import Unit from "../components/Unit.vue";
 
 export default {
-  name: "Contactus",
+  name: "Lawyer",
   components:{
       Unit,
   }
@@ -16,9 +16,5 @@ export default {
 </script>
 
 <style scoped>
-.tablelist{
-    transform: translateY(-120vh);
-    position: absolute;
-    z-index: 1;
-}
+
 </style>

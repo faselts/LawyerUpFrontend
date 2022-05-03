@@ -50,6 +50,8 @@ export default {
   justify-content:left;
   padding-left: 2rem;
   font-family: "Poppins", sans-serif;
+  bottom: 0;
+  margin-top: 5vh;
 }
 .typing {
   margin-left: 10px;

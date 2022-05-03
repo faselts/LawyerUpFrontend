@@ -1,27 +1,20 @@
 <template>
   <div class="main">
-   
+    <Title/>
     <Body2 />
-    <Footer />
-    <!-- <Unit/> -->
   </div>
 </template>
 
 <script>
 import Body2 from "../components/Body2.vue";
-
-import Footer from "../components/Footer.vue";
+import Title from "../components/Title.vue";
 
 export default {
   name: "Animation",
-  
   components: {
-   
     Body2,
-    Footer,
-    // Unit
+    Title
   },
-  
 };
 </script>
 
