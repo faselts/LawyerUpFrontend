@@ -6,10 +6,10 @@
           <div class="form">
             <form @submit.prevent="postData" id="form">
               <input
+                class="input"
                 type="text"
                 name="search"
                 autocomplete="off"
-                v-model="query"
                 required
               />
               <button type="submit"></button>
@@ -23,8 +23,7 @@
       <ul class="nav-links">
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/works" result="result">Works</router-link></li>
-        <li><router-link to="/contactus">Contact Us</router-link></li>
+        <li><router-link to="/lawyer">律師</router-link></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -32,8 +31,7 @@
         <div class="line3"></div>
       </div>
     </nav>
-    
-    <Title />
+
     <router-view></router-view>
   </div>
 </template>
@@ -43,21 +41,17 @@ import TimelineLite from "gsap";
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import Title from "../components/Title.vue";
 
 Vue.use(VueAxios, axios);
 
 export default {
   name: "NavBar",
-  components: {
-    Title,
-  },
-  computed:{
-
+  components: {},
+  computed: {
+    
   },
   data() {
     return {
-      query: null,
       resultp: {
         first: null,
         second: null,
@@ -81,30 +75,31 @@ export default {
         .catch((error) => console.error("There was an error!", error));
     },
     async postData() {
+      this.$store.state.query = document.querySelector(".input").value;
+
       window.alert("predicting..."); /*jump alert out*/
-      
-      // await axios
-      //   .post("http://140.123.174.200/api/Search", {
-      //     searchQuery: JSON.stringify(this.query),
-      //   })
-      //   .then(() => {
-         
-      //     // console.log(resp);
-      //   })
-      //   .catch((error) => console.error("There was an error!", error));
+      this.$router.push({ path: "/about" });
+      axios
+        .post("http://140.123.174.200/api/Search", {
+          searchQuery: this.$store.state.query,
+        })
+        .then((resp) => {
+          console.log(resp.data);
+          this.$store.state.results = resp.data.data;
+        })
+
       axios
         .post("http://140.123.174.200/api/PredictionModel", {
-          query: JSON.stringify(this.query),
+          query: this.$store.state.query,
         })
         .then((response) => {
           (this.$store.state.resultp.first = response.data.first),
             (this.$store.state.resultp.second = response.data.second),
             (this.$store.state.resultp.third = response.data.third);
-            console.log(response);
-            window.alert("finished!");
+          console.log(response);
+          window.alert("finished!");
         })
         .catch((error) => console.error("There was an error!", error));
-       
     },
     clickburger() {
       const navSlide = () => {
@@ -162,8 +157,6 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-
-
 
 form button {
   width: 2rem;
