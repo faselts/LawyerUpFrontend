@@ -10,11 +10,13 @@ export default new Vuex.Store({
       second: "",
       third: "",
     },
+    results:undefined,
+    query:null
   },
   getters: {
-    getresultdata:state=>{
-      return state.resultp
-    }
+    // updateresult(state){
+    //   return state.results.filter(results=>results)
+    // }
   },
   mutations: {
     
