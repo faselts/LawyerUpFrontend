@@ -11,7 +11,7 @@
             <div class="lawyer">
               <div v-for="arr in item.lawyers" :key="arr.id">
                   <label>經驗律師:</label>
-                <button class="lawyerbutton">{{ arr.name }}</button>
+                <button class="lawyerbutton" v-b-modal.modal-1 @click="detail(arr.id)">{{ arr.name }}</button>
               </div>
             </div>
           </div>
@@ -33,6 +33,8 @@
         </button>
       </div>
     </div>
+  <lawyer-modal :id="lawyerid"></lawyer-modal>
+
   </div>
 </template>
 
@@ -40,11 +42,19 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-
+import LawyerModal from '../components/LawyerModal.vue';
 Vue.use(VueAxios, axios);
 
 export default {
   name: "SearchResult",
+  components:{
+    LawyerModal
+  },
+  data(){
+    return{
+      lawyerid:undefined
+    }
+  },
   computed: {
     results() {
       return this.$store.state.results;
@@ -88,6 +98,9 @@ export default {
           
         })
       //   }
+    },
+    detail(par) {
+      this.lawyerid = par;
     },
   },
 };

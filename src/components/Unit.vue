@@ -1,47 +1,19 @@
 <template>
   <div class="paginationpage">
-    <div class="container">
+    <div class="lawyercontainer">
       <div class="text-box">
         <Pagination v-on:changeurll="changeurl($event)" />
-        <div v-for="item in list" :key="item.id" class="data" >
-          <div class="information">
-            <div class="space name">
-              <button @click="detail(item.id), scrollto()">
-                {{ item.name }}
-              </button>
-            </div>
+        <div v-for="item in list" :key="item.id" class="data">
+          <div class="information" v-b-modal.modal-1 @click="detail(item.id)">
+            <div class="space name">{{item.name}}</div>
             <div class="space sex">{{ item.sex }}</div>
             <div class="space guild_name">{{ item.guild_name }}</div>
             <div class="space email">{{ item.email }}</div>
             <div class="space tel">{{ item.tel }}</div>
           </div>
         </div>
+        <lawyer-modal :id="lawyerid"></lawyer-modal>
       </div>
-
-      <table border="1px" class="detail">
-        <tr>
-          <td>姓名</td>
-          <td>性別</td>
-          <td>年紀</td>
-          <td>Email</td>
-          <td>公會</td>
-          <td>律師證號</td>
-          <td>律師辦公室</td>
-          <td>電話</td>
-          <td>地址</td>
-        </tr>
-        <tr>
-          <td>{{ detaillist.name }}</td>
-          <td>{{ detaillist.sex }}</td>
-          <td>{{ detaillist.age }}</td>
-          <td>{{ detaillist.email }}</td>
-          <td>{{ detaillist.guild_name }}</td>
-          <td>{{ detaillist.now_lic_no }}</td>
-          <td>{{ detaillist.office }}</td>
-          <td>{{ detaillist.tel }}</td>
-          <td>{{ detaillist.address }}</td>
-        </tr>
-      </table>
     </div>
   </div>
 </template>
@@ -52,13 +24,14 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import Pagination from "./Pagination.vue";
 // import anime from 'animejs/lib/anime.es.js';
-
+import LawyerModal from "./LawyerModal.vue";
 Vue.use(VueAxios, axios);
 
 export default {
   name: "Unit",
   components: {
     Pagination,
+    LawyerModal,
   },
   data() {
     return {
@@ -67,18 +40,16 @@ export default {
         name: null,
       },
       url: "http://140.123.174.200/api/Lawyer/",
+      lawyerid: undefined,
     };
   },
   mounted() {
-    Vue.axios
-      .get("http://140.123.174.200/api/Lawyer")
-      .then((resp) => {
-        this.list = resp.data.data;
-      });
+    Vue.axios.get("http://140.123.174.200/api/Lawyer").then((resp) => {
+      this.list = resp.data.data;
+    });
     this.parallax();
   },
   methods: {
-    
     scrollto() {
       var element = document.querySelector(".detail");
       var target = element.offsetTop;
@@ -88,26 +59,20 @@ export default {
     changeurl({ page, sex }) {
       let url = "http://140.123.174.200/api/Lawyer?CurrentPage=";
       let sexString = "";
-      if(page==null){
+      if (page == null) {
         page = 1;
       }
-      if(sex == true){
+      if (sex == true) {
         sexString = "&Sort=sex";
       }
       url = url + page + sexString;
-       Vue.axios
-          .get(url)
-          .then((resp) => {
-            this.list = resp.data.data;
-            console.log(
-              resp
-            );
-          });
+      Vue.axios.get(url).then((resp) => {
+        this.list = resp.data.data;
+        console.log(resp);
+      });
     },
     detail(par) {
-      Vue.axios.get("http://140.123.174.200/api/Lawyer/" + par).then((resp) => {
-        this.detaillist = resp.data;
-      });
+      this.lawyerid = par;
     },
     parallax() {
       const parallax = document.querySelector(".container");
@@ -125,7 +90,7 @@ export default {
   display: flex;
   min-width: 700px;
 }
-button{
+button {
   cursor: pointer;
 }
 /* .data:hover{
@@ -142,13 +107,12 @@ button{
 .email {
   width: 20vw;
 }
-.data:hover{
+.data:hover {
   background-color: rgb(143, 210, 255);
   transform: scale(1.05);
-  transition:  0.4s ease;
-
+  transition: 0.4s ease;
 }
-.container {
+.lawyercontainer {
   background-color: #646670;
   height: 150vh;
   background-size: contain;
