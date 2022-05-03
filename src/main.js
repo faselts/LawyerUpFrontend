@@ -7,8 +7,7 @@ import '@fortawesome/fontawesome-free/js/all.js'
 import VueRouter from'vue-router'
 // import PageNotFound from './pages/PageNotFound.vue'
 import Home from './pages/Home.vue'
-import About from './pages/About.vue'
-import Works from './pages/Works.vue'
+import SearchResult from './pages/SearchResult.vue'
 import Lawyer from './pages/Lawyer.vue'
 import store from './store'
 
@@ -20,14 +19,9 @@ const routes=[
   {path:'/',
   name:'Home',
   component:Home},
-  {path:'/about',
-  name:'About',
-  component:About,
-  props: (route) => route.params},
-  {path:'/works',
-  name:'Works',
-  component:Works,
-  props: (route) => route.params},
+  {path:'/searchresult',
+  name:'SearchResult',
+  component:SearchResult},
   {path:'/lawyer',
   name:'Lawyer',
   component:Lawyer},

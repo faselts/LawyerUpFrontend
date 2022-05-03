@@ -1,7 +1,5 @@
 <template>
-    <div class="tablelist">
         <Unit/>
-    </div>
 </template>
 
 <script>

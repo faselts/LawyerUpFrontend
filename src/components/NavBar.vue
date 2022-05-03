@@ -15,14 +15,14 @@
               <button type="submit"></button>
             </form>
             <label for="name" class="label-name" id="label-name">
-              <span class="content-name" id="content-name">Search</span>
+              <span class="content-name" id="content-name">輸入律師姓名、案件類型或關鍵字</span>
             </label>
           </div>
         </div>
       </div>
       <ul class="nav-links">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/">首頁</router-link></li>
+        <li><router-link to="/searchresult">搜尋結果</router-link></li>
         <li><router-link to="/lawyer">律師</router-link></li>
       </ul>
       <div class="burger">
@@ -76,7 +76,7 @@ export default {
       this.$store.state.query = document.querySelector(".input").value;
 
       window.alert("predicting..."); /*jump alert out*/
-      this.$router.push({ path: "/about" });
+      this.$router.push({ path: "/searchresult" });
       axios
         .post("http://140.123.174.200/api/Search", {
           searchQuery: this.$store.state.query,

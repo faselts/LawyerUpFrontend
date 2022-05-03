@@ -1,18 +1,18 @@
 <template>
   <div class="main">
     <Title/>
-    <Body2 />
+    <Body />
   </div>
 </template>
 
 <script>
-import Body2 from "../components/Body2.vue";
+import Body from "../components/Body.vue";
 import Title from "../components/Title.vue";
 
 export default {
   name: "Animation",
   components: {
-    Body2,
+    Body,
     Title
   },
 };

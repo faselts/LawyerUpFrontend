@@ -17,9 +17,11 @@
           </div>
 
           <div class="content">{{ item.mainContent }}</div>
+          <button class="searchid" ></button>
         </div>
       </div>
       <div class="predict">
+        <h3>預測案由</h3>
         <button @click="turn(first)">
           {{ this.$store.state.resultp.first }}
         </button>
@@ -42,7 +44,7 @@ import VueAxios from "vue-axios";
 Vue.use(VueAxios, axios);
 
 export default {
-  name: "About",
+  name: "SearchResult",
   computed: {
     results() {
       return this.$store.state.results;
@@ -92,6 +94,9 @@ export default {
 </script>
 
 <style scoped>
+h3{
+  margin-bottom: 0.5rem;
+}
 .information{
     display: flex;
 }
@@ -134,7 +139,17 @@ export default {
 .predict {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-left: 10rem;
+  background-color: rgb(255, 255, 255);
+  padding: 0.5rem;
+  height: 25vh;
+  width: 200px;
+  position: fixed;
+  margin-left: 70vw;
+  border-radius: 10px;
+  margin-top: 7vh;
 }
 button {
   width: 130px;
