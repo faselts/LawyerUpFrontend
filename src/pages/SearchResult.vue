@@ -1,5 +1,26 @@
 <template>
   <div class="about">
+    <div class="blockdisplay">
+      <div class="eventDetail">
+        <div class="informationFirstLine">
+          <div class="year">{{ eventDetail.year }}</div>
+          <div class="word">{{ eventDetail.word }}</div>
+          <div class="number">{{ eventDetail.number }}</div>
+          <div class="classification">{{ eventDetail.classification }}</div>
+          <div class="courtCode">{{ eventDetail.courtCode }}</div>
+        </div>
+        <br>
+        <div class="beforeMain">{{ eventDetail.beforeMain }}</div>
+        <!-- <div class="lawyer">{{ eventDetail.lawyer }}</div> -->
+
+        <div class="mainContent">{{ eventDetail.mainContent }}</div>
+        <div class="factReason">{{ eventDetail.factReason }}</div>
+
+        <div class="judgeDate">{{ eventDetail.judgeDate }}</div>
+      </div>
+      <button class="close" @click="cancel"></button>
+    </div>
+
     <div class="result">
       <div class="record">
         <div v-for="item in results" :key="item.id" class="data">
@@ -10,14 +31,18 @@
             <div class="space">{{ item.judgeDate }}</div>
             <div class="lawyer">
               <div v-for="arr in item.lawyers" :key="arr.id">
-                  <label>經驗律師:</label>
+                <label>經驗律師:</label>
                 <button class="lawyerbutton">{{ arr.name }}</button>
               </div>
             </div>
           </div>
 
-          <div class="content">{{ item.mainContent }}</div>
-          <button class="searchid" ></button>
+          <div class="content">
+            {{ item.mainContent
+            }}<button class="searchid" @click="showsearchid(item.id)">
+              (點擊閱讀更多資料...)
+            </button>
+          </div>
         </div>
       </div>
       <div class="predict">
@@ -59,23 +84,25 @@ export default {
       return this.$store.state.resultp.third;
     },
   },
+  data() {
+    return {
+      eventDetail: {
+        id: null,
+      },
+    };
+  },
   methods: {
-    show() {
-      console.log(this.results);
+    cancel() {
+      document.querySelector(".blockdisplay").style.display = "none";
+    },
+    showsearchid(id) {
+      axios.get("http://140.123.174.200/api/Search/" + id).then((resp) => {
+        this.eventDetail = resp.data;
+        console.log(resp.data);
+      });
+      document.querySelector(".blockdisplay").style.display = "flex";
     },
     turn(e) {
-      //   if (this.$store.state.results == null) {
-      //       console.log(e);
-      //     axios
-      //       .post("http://140.123.174.200/api/Search", {
-      //         classification: e,
-      //         searchQuery: "處",
-      //       })
-      //       .then((resp) => {
-      //         console.log(resp.data);
-      //         this.$store.state.results = resp.data.data;
-      //       });
-      //   } else {
       console.log(e);
       axios
         .post("http://140.123.174.200/api/Search", {
@@ -85,8 +112,7 @@ export default {
         .then((resp) => {
           console.log(resp.data);
           this.$store.state.results = resp.data.data;
-          
-        })
+        });
       //   }
     },
   },
@@ -94,29 +120,92 @@ export default {
 </script>
 
 <style scoped>
-h3{
+.informationFirstLine {
+  display: flex;
+  justify-content: space-between;
+  width: 25vw;
+}
+.close {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  border: 2px;
+  background-image: url(https://cdn-icons-png.flaticon.com/512/130/130877.png);
+  background-size: cover;
+  background-color: #fff;
+  rotate: 40deg;
+  margin-left: 85vw;
+}
+.close:hover {
+  animation: cancel 2s infinite;
+}
+@keyframes cancel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.blockdisplay {
+  background-color: rgb(252, 215, 160);
+  width: 90vw;
+  height: 80vh;
+  position: fixed;
+  transform: translateX(5vw);
+  border-radius: 10px;
+  margin-top: 10vh;
+  z-index: 1;
+  display: none;
+}
+.eventDetail {
+  width: 80vw;
+  height: 70vh;
+  background: rgba(255, 255, 255, 0.3);
+
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  position: fixed;
+  transform: translateX(5vw);
+  margin-top: 5vh;
+  z-index: 1;
+  overflow-y: scroll;
+
+  padding: 2.5rem;
+}
+
+h3 {
   margin-bottom: 0.5rem;
 }
-.information{
-    display: flex;
+.searchid {
+  background-color: rgb(211, 211, 208);
+  color: rgb(62, 84, 207);
+  height: 10px;
+  width: 130px;
+  margin: 5px;
 }
-.content{
-    margin-top: 1.5rem;
+.information {
+  display: flex;
 }
-.space{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1rem;
-    height: 5vh;
+.content {
+  margin-top: 1.5rem;
 }
-.lawyer{
-    margin-left: 5rem;
+.space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  height: 5vh;
 }
-.lawyerbutton{
-    height: 30px;
-    background-color: rgb(29, 112, 105);
-    font-size: 1rem;
+.lawyer {
+  margin-left: 5rem;
+}
+.lawyerbutton {
+  height: 30px;
+  background-color: rgb(29, 112, 105);
+  font-size: 1rem;
 }
 .about {
   width: 100vw;
@@ -130,7 +219,7 @@ h3{
 .result {
   width: 100vw;
   background-color: rgb(105, 104, 103);
-  position: absolute;
+
   top: 10vh;
   display: flex;
   justify-content: space-between;
@@ -160,8 +249,8 @@ button {
   border: none;
   cursor: pointer;
 }
-.record{
-    width: 60vw;
-    margin-top: 3vh;
+.record {
+  width: 60vw;
+  margin-top: 3vh;
 }
 </style>
