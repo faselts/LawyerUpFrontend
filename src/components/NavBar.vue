@@ -23,7 +23,7 @@
       <ul class="nav-links">
         <li><router-link to="/">首頁</router-link></li>
         <li><router-link to="/searchresult">搜尋結果</router-link></li>
-        <li><router-link to="/lawyer">律師</router-link></li>
+        <li><router-link to="/lawyer">所有律師資訊</router-link></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>

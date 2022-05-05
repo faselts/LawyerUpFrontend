@@ -1,6 +1,6 @@
 <template>
   <div class="canvas">
-    <div class="container">
+    <div class="containerOrigin">
       <h2>LawyerUP</h2>
       <div class="pic">
         <div class="firstpic"></div>
@@ -77,7 +77,7 @@ export default {
 .pic{
   display: flex;
   z-index: -2;
-  height: 90vh;
+  height: 100vh;
   background-color: black;
 }
 .firstpic {
@@ -90,7 +90,7 @@ export default {
 
 }
 .secondpic {
-  background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2550&q=80");
+  background-image: transparent;
   height: 70vh;
   width: 16vw;
   transform: translateY(11vh);
@@ -98,7 +98,7 @@ export default {
   box-shadow: 0 0 20px #03bcf4;
 }
 .thirdpic {
-  background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2550&q=80");
+ background-image: transparent;
   height: 75vh;
   width: 20vw;
   transform: translateY(8vh);
@@ -106,7 +106,7 @@ export default {
   box-shadow: 0 0 20px #03bcf4;
 }
 .fourthpic {
-  background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2550&q=80");
+  background-image: transparent;
   height: 75vh;
   width: 20vw;
   transform: translateY(8vh);
@@ -114,7 +114,7 @@ export default {
   box-shadow: 0 0 20px #03bcf4;
 }
 .fifthpic {
-  background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2550&q=80");
+  background-image: transparent;
   height: 70vh;
   width: 16vw;
   transform: translateY(11vh);
@@ -122,7 +122,7 @@ export default {
   box-shadow: 0 0 20px #03bcf4;
 }
 .sixthpic {
-  background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2550&q=80");
+  background-image: transparent;
   height: 60vh;
   width: 14vw;
   transform: translateY(15vh);
@@ -145,7 +145,7 @@ export default {
   min-height: 110vh;
   background: linear-gradient(#f7984b, #ffeb7b);
 }
-.container {
+.containerOrigin {
   width: 100%;
   height: 90vh;
    background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2550&q=80");

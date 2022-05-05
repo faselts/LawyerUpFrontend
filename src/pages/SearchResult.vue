@@ -9,9 +9,9 @@
           <div class="classification">{{ eventDetail.classification }}</div>
           <div class="courtCode">{{ eventDetail.courtCode }}</div>
         </div>
-        <br>
+        <br />
         <div class="beforeMain">{{ eventDetail.beforeMain }}</div>
-        <!-- <div class="lawyer">{{ eventDetail.lawyer }}</div> -->
+        <div class="lawyer">{{ eventDetail.lawyer }}</div>
 
         <div class="mainContent">{{ eventDetail.mainContent }}</div>
         <div class="factReason">{{ eventDetail.factReason }}</div>
@@ -20,7 +20,7 @@
       </div>
       <button class="close" @click="cancel"></button>
     </div>
-
+<lawyer-modal :id="lawyerid"></lawyer-modal>
     <div class="result">
       <div class="record">
         <div v-for="item in results" :key="item.id" class="data">
@@ -29,14 +29,14 @@
             <div class="space">{{ item.type }}</div>
             <div class="space">{{ item.year }}</div>
             <div class="space">{{ item.judgeDate }}</div>
-            <div class="lawyer">
-              <div v-for="arr in item.lawyers" :key="arr.id">
-                <label>經驗律師:</label>
-                <button class="lawyerbutton">{{ arr.name }}</button>
-              </div>
+          </div>
+          <label>經驗律師:</label>
+          <div class="lawyer">
+            
+            <div v-for="arr in item.lawyers" :key="arr.id">
+              <button class="lawyerbutton" v-b-modal.modal-1 @click="detail(arr.id)">{{ arr.name }}</button>
             </div>
           </div>
-
           <div class="content">
             {{ item.mainContent
             }}<button class="searchid" @click="showsearchid(item.id)">
@@ -65,11 +65,15 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import LawyerModal from "../components/LawyerModal.vue";
 
 Vue.use(VueAxios, axios);
 
 export default {
   name: "SearchResult",
+  components: {
+   LawyerModal,
+  },
   computed: {
     results() {
       return this.$store.state.results;
@@ -92,6 +96,9 @@ export default {
     };
   },
   methods: {
+    detail(par) {
+      this.lawyerid = par;
+    },
     cancel() {
       document.querySelector(".blockdisplay").style.display = "none";
     },
@@ -120,6 +127,11 @@ export default {
 </script>
 
 <style scoped>
+.lawyer {
+  display: flex;
+
+  flex-wrap: wrap;
+}
 .informationFirstLine {
   display: flex;
   justify-content: space-between;
@@ -130,12 +142,11 @@ export default {
   height: 50px;
   width: 50px;
   position: absolute;
-  border: 2px;
   background-image: url(https://cdn-icons-png.flaticon.com/512/130/130877.png);
   background-size: cover;
   background-color: #fff;
   rotate: 40deg;
-  margin-left: 85vw;
+  margin-left: 86vw;
 }
 .close:hover {
   animation: cancel 2s infinite;
@@ -183,7 +194,7 @@ h3 {
   background-color: rgb(211, 211, 208);
   color: rgb(62, 84, 207);
   height: 10px;
-  width: 130px;
+  width: 170px;
   margin: 5px;
 }
 .information {
@@ -199,9 +210,7 @@ h3 {
   margin-right: 1rem;
   height: 5vh;
 }
-.lawyer {
-  margin-left: 5rem;
-}
+
 .lawyerbutton {
   height: 30px;
   background-color: rgb(29, 112, 105);
