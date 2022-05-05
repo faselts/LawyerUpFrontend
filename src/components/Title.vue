@@ -7,21 +7,11 @@
         <div class="firstpic"></div>
         <div class="secondpic"></div>
         <div class="thirdpic">
-          <video src="https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101361.mp4" loop autoplay></video>
-          <!-- <iframe src="https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101361.mp4"
-          allow = "autoplay" height="100%">
-           
-          </iframe> -->
-          
+          <video src="https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101361.mp4" loop autoplay muted></video>
         </div>
         <div class="fourthpic"></div>
         <div class="fifthpic">
-          <video src="https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101349.mp4" loop autoplay></video>
-          <!-- <iframe src="https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101361.mp4"
-          allow = "autoplay" height="100%">
-           
-          </iframe> -->
-          
+          <video src="https://url.chyanweb.com/a0s" loop autoplay muted></video>
         </div>
         <div class="sixthpic"></div>
       </div>
@@ -96,7 +86,7 @@ export default {
   background-color: black;
 }
 .firstpic {
-  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-pavel-danilyuk-8111826.jpg);
+  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-sora-shimazaki-5669619.jpg);
   height: 60vh;
   width: 14vw;
   background-size: cover;
@@ -106,13 +96,14 @@ export default {
 
 }
 .secondpic {
-  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-sora-shimazaki-5669619.jpg);
+  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-pavel-danilyuk-8111826.jpg);
   height: 70vh;
   width: 16vw;
   transform: translateY(11vh);
   background-size: cover;
   margin: 1.5rem;
   box-shadow: 0 0 20px #03bcf4;
+  background-position-x: -70px;
 }
 .thirdpic {
  background-clip: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101361.mp4);
@@ -121,6 +112,7 @@ export default {
   transform: translateY(8vh);
   margin: 1.5rem;
   box-shadow: 0 0 20px #03bcf4;
+  overflow: hidden;
 }
 .fourthpic {
   background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-samuel-theo-manat-silitonga-694587.jpg);
@@ -128,7 +120,7 @@ export default {
   width: 20vw;
   transform: translateY(8vh);
   background-size: cover;
-  background-position-x: -80px;
+  background-position-x: -100px;
   margin: 1.5rem;
   box-shadow: 0 0 20px #03bcf4;
 }
@@ -139,6 +131,7 @@ export default {
   transform: translateY(11vh);
   margin: 1.5rem;
   box-shadow: 0 0 20px #03bcf4;
+  overflow: hidden;
 }
 .sixthpic {
   background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-pavel-danilyuk-8112128.jpg);
@@ -195,7 +188,8 @@ h3 {
  left: 20vw;
 }
 video{
-z-index: 10;
   height: 100%;
+  background-size: cover;
+  transform: translateX(-50px);
 }
 </style>
