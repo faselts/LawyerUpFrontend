@@ -2,64 +2,57 @@
   <div class="canvas">
     <section class="sec-01">
       <div class="container">
-        <h2 class="main-title">Reveal Elements on Scroll</h2>
+        <h2 class="main-title">如何找律師呢?</h2>
         <div class="content">
           <div class="image">
             <img
-              src="https://www.planetware.com/wpimages/2019/11/canada-in-pictures-beautiful-places-to-photograph-morraine-lake.jpg"
+              src="https://cdn.chyanweb.com/update/file/2022-5/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202022-05-04%20103942.png"
               alt=""
             />
           </div>
           <div class="text-box">
-            <h3>Lorem Ipsum</h3>
+            <h3>找律師</h3>
+            <br>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Exercitationem accusantium minima fugiat eveniet quis nobis minus
-              fuga deleniti! Nihil labore quam ipsam molestias deserunt sit quos
-              sequi libero architecto animi!
+              第一步：<br>
+              輸入律師姓名、案件類型或關鍵字。<br>
+              第二步：<br>
+              查看判決書，選擇推薦律師。
             </p>
           </div>
         </div>
-        <div class="media-icons">
+        <!-- <div class="media-icons">
           <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
           <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
           <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
           <a href="#" class="icon"><i class="fab fa-youtube"></i></a>
-        </div>
+        </div> -->
       </div>
     </section>
     <section class="sec-02">
       <div class="content">
         <div class="text-box sec-02-box1">
-          <h4 class="info-title">Description</h4>
+          <h4 class="info-title">創新、獨家的搜尋方式</h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Exercitationem accusantium minima fugiat eveniet quis nobis minus
-            fuga deleniti! Nihil labore quam ipsam molestias deserunt sit quos
-            sequi libero architecto animi!
+            透過關鍵字搜索，將會找到類似的案件，如未搜索到結果，可以點擊右方採用Bert模型訓練出的參考案由進行查找。
           </p>
         </div>
         <div class="text-box sec-02-box2">
-          <h4 class="info-title">Description</h4>
+          <h4 class="info-title">詳細的判決書資訊</h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Exercitationem accusantium minima fugiat eveniet quis nobis minus
-            fuga deleniti! Nihil labore quam ipsam molestias deserunt sit quos
-            sequi libero architecto animi!
+            網站收錄了近三年嘉義市刑法案件的判決書14,000筆，豐富的判決讓使用者查詢。
           </p>
         </div>
         <div class="text-box sec-02-box3">
-          <h4 class="info-title">Description</h4>
+          <h4 class="info-title">豐富的律師資訊</h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Exercitationem accusantium minima fugiat eveniet quis nobis minus
-            fuga deleniti! Nihil labore quam ipsam molestias deserunt sit quos
-            sequi libero architecto animi!
+            資料庫含括了11,000筆全台灣的律師資訊，讓找律師變得更簡單。
+            <br>
           </p>
         </div>
       </div>
     </section>
-    <section class="sec-03">
+    <!-- <section class="sec-03">
       <div class="container">
         <h3 class="section-title">Reveal Elements on Scroll</h3>
         <div class="content">
@@ -97,7 +90,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -140,7 +133,7 @@ export default {
     //       (window.innerWidth || document.documentElement.clientWidth)
     //   );
     // }
-  },
+  }
 };
 </script>
 
@@ -152,7 +145,7 @@ export default {
   font-family: "Poppins", sans-serif;
 }
 .sec-02 {
-  background: url(https://images2.boardingschoolreview.com/photo/1122x864/1000/593/img-academy-oqxuxY.jpg);
+  background: url(https://cdn.chyanweb.com/update/file/2022-5/f0e507b6-fa18-4e73-8a1c-bd3f49e58be5.jpg);
   height: 100vh;
   background-size: cover;
   background-attachment: fixed;
@@ -167,7 +160,7 @@ export default {
 }
 .canvas {
   background: rgb(5, 5, 5);
-  height: 290vh;
+  height: 180vh;
   width: 100vw;
 }
 section {
@@ -273,3 +266,4 @@ content .text-box h3 {
   background-color: rgb(65, 65, 65);
 }
 </style>
+

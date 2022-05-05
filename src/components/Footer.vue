@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     typing() {
-      const texts = ["Profession.", "", "Trustworthy.", "", "LawyerUp."];
+      const texts = ["Professional.", "", "Trustworthy.", "", "LawyerUp."];
       let count = 0;
       let index = 0;
       let currentText = "";
