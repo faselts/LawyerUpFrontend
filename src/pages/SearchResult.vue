@@ -11,7 +11,6 @@
         </div>
         <br />
         <div class="beforeMain">{{ eventDetail.beforeMain }}</div>
-        <div class="lawyer">{{ eventDetail.lawyer }}</div>
 
         <div class="mainContent">{{ eventDetail.mainContent }}</div>
         <div class="factReason">{{ eventDetail.factReason }}</div>
@@ -20,7 +19,6 @@
       </div>
       <button class="close" @click="cancel"></button>
     </div>
-<lawyer-modal :id="lawyerid"></lawyer-modal>
     <div class="result">
       <div class="record">
         <div v-for="item in results" :key="item.id" class="data">
@@ -58,7 +56,10 @@
         </button>
       </div>
     </div>
+              <lawyer-modal :id="lawyerid"></lawyer-modal>
+
   </div>
+  
 </template>
 
 <script>
@@ -93,6 +94,7 @@ export default {
       eventDetail: {
         id: null,
       },
+      lawyerid:undefined
     };
   },
   methods: {
