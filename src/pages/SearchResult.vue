@@ -11,7 +11,7 @@
         </div>
         <br />
         <div class="beforeMain">{{ eventDetail.beforeMain }}</div>
-        <div class="lawyer">{{ eventDetail.lawyer }}</div>
+        <!-- <div class="lawyer">{{ eventDetail.lawyer }}</div> -->
 
         <div class="mainContent">{{ eventDetail.mainContent }}</div>
         <div class="factReason">{{ eventDetail.factReason }}</div>
@@ -36,7 +36,7 @@
             <div v-for="arr in item.lawyers" :key="arr.id">
               <button class="lawyerbutton" v-b-modal.modal-1 @click="detail(arr.id)">{{ arr.name }}</button>
             </div>
-          </div>
+            </div>
           <div class="content">
             {{ item.mainContent
             }}<button class="searchid" @click="showsearchid(item.id)">
@@ -93,6 +93,7 @@ export default {
       eventDetail: {
         id: null,
       },
+      lawyerid:null
     };
   },
   methods: {
