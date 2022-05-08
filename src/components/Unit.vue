@@ -3,6 +3,7 @@
     <div class="lawyercontainer">
       <div class="text-box">
         <Pagination v-on:changeurll="changeurl($event)" />
+        <County/>
         <div v-for="item in list" :key="item.id" class="data">
           <div class="information" v-b-modal.modal-1 @click="detail(item.id)">
             <div class="space name">{{item.name}}</div>
@@ -25,6 +26,7 @@ import VueAxios from "vue-axios";
 import Pagination from "./Pagination.vue";
 // import anime from 'animejs/lib/anime.es.js';
 import LawyerModal from "./LawyerModal.vue";
+import County from "./County.vue";
 Vue.use(VueAxios, axios);
 
 export default {
@@ -32,6 +34,7 @@ export default {
   components: {
     Pagination,
     LawyerModal,
+    County
   },
   data() {
     return {
