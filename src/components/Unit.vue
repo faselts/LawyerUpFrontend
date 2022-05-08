@@ -3,7 +3,6 @@
     <div class="lawyercontainer">
       <div class="text-box">
         <Pagination v-on:changeurll="changeurl($event)" />
-        <County/>
         <div v-for="item in list" :key="item.id" class="data">
           <div class="information" v-b-modal.modal-1 @click="detail(item.id)">
             <div class="space name">{{item.name}}</div>
@@ -26,7 +25,7 @@ import VueAxios from "vue-axios";
 import Pagination from "./Pagination.vue";
 // import anime from 'animejs/lib/anime.es.js';
 import LawyerModal from "./LawyerModal.vue";
-import County from "./County.vue";
+
 Vue.use(VueAxios, axios);
 
 export default {
@@ -34,7 +33,7 @@ export default {
   components: {
     Pagination,
     LawyerModal,
-    County
+
   },
   data() {
     return {
@@ -59,31 +58,36 @@ export default {
 
     //   window.scrollTo({ top: target, behavior: "smooth" });
     // },
-    changeurl({ page, sex }) {
+    changeurl({ page, sex, guild }) {
       let url = "http://140.123.174.200/api/Lawyer?CurrentPage=";
       let sexString = "";
+      let guildString="";
       if (page == null) {
         page = 1;
       }
       if (sex == true) {
         sexString = "&Sort=sex";
       }
-      url = url + page + sexString;
+      if(guild!=null){
+        guildString="&Guild="+guild;
+      } 
+      url = url + page + sexString + guildString;
       Vue.axios.get(url).then((resp) => {
         this.list = resp.data.data;
         console.log(resp);
+        console.log(url);
       });
     },
     detail(par) {
       this.lawyerid = par;
     },
-    parallax() {
-      const parallax = document.querySelector(".container");
-      window.addEventListener("scroll", function () {
-        let offset = window.pageYOffset;
-        parallax.style.backgroundPositionY = offset * 0.4 + "px";
-      });
-    },
+    // parallax() {
+    //   const parallax = document.querySelector(".container");
+    //   window.addEventListener("scroll", function () {
+    //     let offset = window.pageYOffset;
+    //     parallax.style.backgroundPositionY = offset * 0.4 + "px";
+    //   });
+    // },
   },
 };
 </script>
