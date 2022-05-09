@@ -97,7 +97,7 @@ export default {
 
 <style scoped>
 .distance{
-  margin-top: 10vh;
+  margin-top: 20vh;
 }
 .information {
   display: flex;

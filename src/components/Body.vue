@@ -1,5 +1,42 @@
 <template>
   <div class="canvas">
+    <section class="sec-03">
+      <div class="container">
+        <h3 class="section-title">免費法律諮詢</h3>
+        <div class="content">
+          <div class="media-info">
+            <li>
+              <a href="https://sec.gov.taipei/News_Content.aspx?n=224402C613AE51F3&sms=10B6E6F8F525E234&s=9FCDE8146D4D8DA8"
+                >台北市政府法律諮詢服務櫃檯</a
+              >
+            </li>
+            <li>
+              <a href="https://legal.tycg.gov.tw/home.jsp?id=295&parentpath=0,142,254"
+                >桃園市政府法律諮詢中心</a
+              >
+            </li>
+            <li>
+              <a href="https://legal-aid.taichung.gov.tw/News/ContentView?PID=3">台中市政府市政大樓10樓</a>
+            </li>
+            <li>
+              <a href="https://laf.chiayi.gov.tw/">嘉義市政府一樓法扶諮詢室</a>
+            </li>
+            <li>
+              <a href="https://www.lawchain.tw/%E6%B3%95%E5%BE%8B%E7%9F%A5%E8%AD%98%E5%AE%B6/77-%E5%90%84%E7%B8%A3%28%E5%B8%82%29%E6%94%BF%E5%BA%9C%E5%85%8D%E8%B2%BB%E6%B3%95%E5%BE%8B%E8%AB%AE%E8%A9%A2%E9%A0%90%E7%B4%84%E5%B0%88%E7%B7%9A"
+                >查看更多...</a
+              >
+            </li>
+          </div>
+          <div class="jarallax">
+            <div class="image">
+              <img
+                src="https://th.bing.com/th/id/OIP.rrpOGPeGn3AJlPQV3G7yHQHaEC?pid=ImgDet&w=825&h=450&rs=1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="sec-01">
       <div class="container">
         <h2 class="main-title">如何找律師呢?</h2>
@@ -52,45 +89,6 @@
         </div>
       </div>
     </section>
-    <!-- <section class="sec-03">
-      <div class="container">
-        <h3 class="section-title">Reveal Elements on Scroll</h3>
-        <div class="content">
-          <div class="media-info">
-            <li>
-              <a href="#" class="icon"
-                ><i class="fab fa-facebook"></i>Facebook</a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon"
-                ><i class="fab fa-instagram"></i>Instagram</a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon"><i class="fab fa-twitter"></i>Twitter</a>
-            </li>
-            <li>
-              <a href="#" class="icon"><i class="fab fa-youtube"></i>Youtube</a>
-            </li>
-            <li>
-              <a href="#" class="icon"
-                ><i class="fab fa-linkedin"></i>Linkedin</a
-              >
-            </li>
-          </div>
-          <div class="jarallax">
-            <div class="image">
-              <img
-                src="http://farm4.staticflickr.com/3795/9269794168_3ac58fc15c_b.jpg"
-                alt=""
-                class="jarallax-img"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
   </div>
 </template>
 
@@ -122,17 +120,6 @@ export default {
       origin: "top",
       interval: 200,
     });
-    // function isInViewport(el) {
-    //   const rect = el.getBoundingClientRect();
-    //   return (
-    //     rect.top >= 0 &&
-    //     rect.left >= 0 &&
-    //     rect.bottom <=
-    //       (window.innerHeight || document.documentElement.clientHeight) &&
-    //     rect.right <=
-    //       (window.innerWidth || document.documentElement.clientWidth)
-    //   );
-    // }
   }
 };
 </script>
@@ -160,7 +147,7 @@ export default {
 }
 .canvas {
   background: rgb(5, 5, 5);
-  height: 180vh;
+  height: 290vh;
   width: 100vw;
 }
 section {
