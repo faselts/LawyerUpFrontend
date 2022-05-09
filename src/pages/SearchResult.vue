@@ -21,6 +21,7 @@
     </div>
     <div class="result">
       <div class="record">
+        <div v-if="results == undefined">Loading...</div>
         <div v-for="item in results" :key="item.id" class="data">
           <div class="information">
             <div class="space">{{ item.classification }}</div>
@@ -30,11 +31,16 @@
           </div>
           <label>經驗律師:</label>
           <div class="lawyer">
-            
             <div v-for="arr in item.lawyers" :key="arr.id">
-              <button class="lawyerbutton" v-b-modal.modal-1 @click="detail(arr.id)">{{ arr.name }}</button>
+              <button
+                class="lawyerbutton"
+                v-b-modal.modal-1
+                @click="detail(arr.id)"
+              >
+                {{ arr.name }}
+              </button>
             </div>
-            </div>
+          </div>
           <div class="content">
             {{ item.mainContent
             }}<button class="searchid" @click="showsearchid(item.id)">
@@ -56,10 +62,8 @@
         </button>
       </div>
     </div>
-              <lawyer-modal :id="lawyerid"></lawyer-modal>
-
+    <lawyer-modal :id="lawyerid"></lawyer-modal>
   </div>
-  
 </template>
 
 <script>
@@ -73,7 +77,7 @@ Vue.use(VueAxios, axios);
 export default {
   name: "SearchResult",
   components: {
-   LawyerModal,
+    LawyerModal,
   },
   computed: {
     results() {
@@ -94,7 +98,7 @@ export default {
       eventDetail: {
         id: null,
       },
-      lawyerid:null
+      lawyerid: null,
     };
   },
   methods: {

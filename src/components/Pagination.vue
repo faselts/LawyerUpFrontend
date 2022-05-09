@@ -9,7 +9,7 @@
     <div class="countyList">
             <div class="county"><input type="radio" name="coutyOption" v-on:change="GoTo" v-model="input.guild"  value=""  id="無" checked><label for="無">無</label></div>
             <div class="county"><input type="radio" name="coutyOption" v-on:change="GoTo" v-model="input.guild"  value="台北律師公會"  id="台北市"><label for="台北市">臺北市</label></div>
-            <div class="county"><input type="radio" name="coutyOption" v-on:change="GoTo" v-model="input.guild"  value="新北律師公會"  id="新北市"><label for="新北市">新北市</label></div>
+            <div class="county"><input type="radio" name="coutyOption" v-on:change="GoTo" v-model="input.guild"  value="基隆律師公會"  id="基隆市"><label for="基隆市">基隆市</label></div>
             <div class="county"><input type="radio" name="coutyOption" v-on:change="GoTo" v-model="input.guild"  value="桃園律師公會"  id="桃園市"><label for="桃園市">桃園市</label></div>
             <div class="county"><input type="radio" name="coutyOption" v-on:change="GoTo" v-model="input.guild"  value="台中律師公會"  id="台中市"><label for="台中市">臺中市</label></div>
             <div class="county"><input type="radio" name="coutyOption" v-on:change="GoTo" v-model="input.guild"  value="台南律師公會"  id="台南市"><label for="台南市">臺南市</label></div>

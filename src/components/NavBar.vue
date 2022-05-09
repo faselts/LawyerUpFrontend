@@ -15,14 +15,16 @@
               <button type="submit"></button>
             </form>
             <label for="name" class="label-name" id="label-name">
-              <span class="content-name" id="content-name">輸入律師姓名、案件類型或關鍵字</span>
+              <span class="content-name" id="content-name"
+                >輸入律師姓名、案件類型或關鍵字</span
+              >
             </label>
           </div>
         </div>
       </div>
       <ul class="nav-links">
         <li><router-link to="/">首頁</router-link></li>
-        <li><router-link to="/searchresult">付費搜索</router-link></li>
+        <li><router-link to="/UserCharge">付費搜索</router-link></li>
         <li><router-link to="/lawyer">所有律師資訊</router-link></li>
       </ul>
       <div class="burger">
@@ -74,8 +76,8 @@ export default {
     },
     async postData() {
       this.$store.state.query = document.querySelector(".input").value;
-
-      window.alert("predicting..."); /*jump alert out*/
+      this.$store.state.results = undefined;
+      //window.alert("predicting..."); /*jump alert out*/
       this.$router.push({ path: "/searchresult" });
       axios
         .post("http://140.123.174.200/api/Search", {
@@ -102,8 +104,7 @@ export default {
             (this.$store.state.resultp.third = response.data.third);
           console.log(response);
           window.alert("finished!");
-        })
-      
+        });
     },
     clickburger() {
       const navSlide = () => {
