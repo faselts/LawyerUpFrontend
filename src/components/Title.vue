@@ -7,11 +7,11 @@
         <div class="firstpic"></div>
         <div class="secondpic"></div>
         <div class="thirdpic">
-          <video src="https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101361.mp4" loop autoplay muted></video>
+          <video src="https://player.vimeo.com/external/487754958.sd.mp4?s=625f928ace8967e5fb864be4b5bab637ecc050c7&profile_id=165&oauth2_token_id=57447761" loop autoplay muted></video>
         </div>
         <div class="fourthpic"></div>
         <div class="fifthpic">
-          <video src="https://url.chyanweb.com/a0s" loop autoplay muted></video>
+          <video src="https://player.vimeo.com/external/554832832.sd.mp4?s=2eea721b2438cb726a6440da476f03f79969d75e&profile_id=165&oauth2_token_id=57447761" loop autoplay muted></video>
         </div>
         <div class="sixthpic"></div>
       </div>
@@ -86,7 +86,7 @@ export default {
   background-color: black;
 }
 .firstpic {
-  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-sora-shimazaki-5669619.jpg);
+  background-image: url(https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   height: 60vh;
   width: 14vw;
   background-size: cover;
@@ -96,7 +96,7 @@ export default {
 
 }
 .secondpic {
-  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-pavel-danilyuk-8111826.jpg);
+  background-image: url(https://images.pexels.com/photos/4427622/pexels-photo-4427622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   height: 70vh;
   width: 16vw;
   transform: translateY(11vh);
@@ -106,7 +106,6 @@ export default {
   background-position-x: -70px;
 }
 .thirdpic {
- background-clip: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-ekaterina-bolovtsova-6101361.mp4);
   height: 75vh;
   width: 20vw;
   transform: translateY(8vh);
@@ -115,7 +114,7 @@ export default {
   overflow: hidden;
 }
 .fourthpic {
-  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-samuel-theo-manat-silitonga-694587.jpg);
+  background-image: url(https://images.pexels.com/photos/694587/pexels-photo-694587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   height: 75vh;
   width: 20vw;
   transform: translateY(8vh);
@@ -134,7 +133,7 @@ export default {
   overflow: hidden;
 }
 .sixthpic {
-  background-image: url(https://cdn.chyanweb.com/update/file/2022-5/pexels-pavel-danilyuk-8112128.jpg);
+  background-image: url(https://images.pexels.com/photos/8112128/pexels-photo-8112128.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   height: 60vh;
   width: 14vw;
   background-size: cover;

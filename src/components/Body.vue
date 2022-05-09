@@ -6,7 +6,7 @@
         <div class="content">
           <div class="image">
             <img
-              src="https://cdn.chyanweb.com/update/file/2022-5/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202022-05-04%20103942.png"
+              src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.15752-9/278880434_387846013352756_4895846533364110658_n.png?_nc_cat=110&ccb=1-6&_nc_sid=ae9488&_nc_ohc=d5FKqAlodxAAX-F3ANv&_nc_ht=scontent.ftpe7-1.fna&oh=03_AVLCKKf1DUrzYSohuVX4OdpMJPgNhdx-7c_85ugiU-gGnQ&oe=629F62B5"
               alt=""
             />
           </div>
@@ -145,7 +145,7 @@ export default {
   font-family: "Poppins", sans-serif;
 }
 .sec-02 {
-  background: url(https://cdn.chyanweb.com/update/file/2022-5/f0e507b6-fa18-4e73-8a1c-bd3f49e58be5.jpg);
+  background: url(https://nypost.com/wp-content/uploads/sites/2/2020/05/supreme-court-2.jpg?quality=90&strip=all&w=1236&h=820&crop=1);
   height: 100vh;
   background-size: cover;
   background-attachment: fixed;
