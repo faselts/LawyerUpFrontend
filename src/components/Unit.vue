@@ -3,7 +3,8 @@
     <div class="lawyercontainer">
       <div class="text-box">
         <Pagination v-on:changeurll="changeurl($event)" />
-        <div v-for="item in list" :key="item.id" class="data">
+        <div class="distance">
+<div v-for="item in list" :key="item.id" class="data">
           <div class="information" v-b-modal.modal-1 @click="detail(item.id)">
             <div class="space name">{{item.name}}</div>
             <div class="space sex">{{ item.sex }}</div>
@@ -12,6 +13,8 @@
             <div class="space tel">{{ item.tel }}</div>
           </div>
         </div>
+        </div>
+        
         <lawyer-modal :id="lawyerid"></lawyer-modal>
       </div>
     </div>
@@ -93,6 +96,9 @@ export default {
 </script>
 
 <style scoped>
+.distance{
+  margin-top: 10vh;
+}
 .information {
   display: flex;
   min-width: 700px;
