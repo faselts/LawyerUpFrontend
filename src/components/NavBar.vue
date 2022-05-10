@@ -26,6 +26,7 @@
         <li><router-link to="/">首頁</router-link></li>
         <li><router-link to="/UserCharge">付費搜索</router-link></li>
         <li><router-link to="/lawyer">所有律師資訊</router-link></li>
+        <li v-b-modal.modal-1>註冊/登入</li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -33,7 +34,7 @@
         <div class="line3"></div>
       </div>
     </nav>
-
+    <login></login>
     <router-view></router-view>
   </div>
 </template>
@@ -43,12 +44,15 @@ import TimelineLite from "gsap";
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import Login from "./Login.vue";
 
 Vue.use(VueAxios, axios);
 
 export default {
   name: "NavBar",
-  components: {},
+  components: {
+    Login
+  },
   computed: {},
   data() {
     return {
@@ -207,6 +211,7 @@ nav {
 .nav-links li {
   list-style: none;
   margin: 0;
+  color: white;
 }
 .nav-links a {
   text-decoration: none;
