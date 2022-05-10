@@ -9,22 +9,23 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
             </div>
             <br>
-            <p><a href="#" title="點我註冊">點我註冊</a></p>
+            <p v-b-modal.modal-dialog><a class="click" title="點我註冊">點我註冊</a></p>
+            <enroll></enroll>
         </b-modal>
 </template>
 
 <script>
-
+import Enroll from "./Enroll.vue";
 export default {
-    name:"Login",
-    data(){
-        return{
-            response:this.getData()
-        }
-    }
+  name: "Login",
+  components: {
+    Enroll
+  }
 }
 </script>
 
-<style>
-
+<style scooped>
+a.click {
+    color: #007bff;
+}
 </style>

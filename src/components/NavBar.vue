@@ -212,6 +212,9 @@ nav {
   list-style: none;
   margin: 0;
   color: white;
+  font-size: 1.2rem;
+  font-weight: 100;
+  letter-spacing: 2px;
 }
 .nav-links a {
   text-decoration: none;
