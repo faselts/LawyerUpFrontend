@@ -24,8 +24,9 @@
       </div>
       <ul class="nav-links">
         <li><router-link to="/">首頁</router-link></li>
-        <li><router-link to="/UserCharge">付費搜索</router-link></li>
-        <li><router-link to="/lawyer">所有律師資訊</router-link></li>
+        <li><router-link to="/">律師諮詢</router-link></li>
+        <li><router-link to="/lawyer">律師檢索</router-link></li>
+        <li><router-link to="/UserCharge">升級Premium</router-link></li>
         <li v-b-modal.modal-1>註冊/登入</li>
       </ul>
       <div class="burger">
@@ -40,9 +41,9 @@
 </template>
 
 <script>
+import axios from "axios";
 import TimelineLite from "gsap";
 import Vue from "vue";
-import axios from "axios";
 import VueAxios from "vue-axios";
 import Login from "./Login.vue";
 
@@ -51,7 +52,7 @@ Vue.use(VueAxios, axios);
 export default {
   name: "NavBar",
   components: {
-    Login
+    Login,
   },
   computed: {},
   data() {
@@ -205,7 +206,7 @@ nav {
 }
 .nav-links {
   display: flex;
-  width: 40%;
+  width: 50%;
   justify-content: space-around;
 }
 .nav-links li {
