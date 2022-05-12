@@ -25,8 +25,8 @@
                 srcset=""
               />
               <h3 class="info-title">
-                <strong>律師</strong>
-                建議是否找律師
+                <strong>諮詢後</strong>
+                確定要找律師
               </h3>
             </div>
           </li>
@@ -81,7 +81,7 @@
               <router-link to="/FreeLawyerConsult">
                 <input
                   type="button"
-                  value="免費線上諮詢"
+                  value="免費律師諮詢"
                   name="按鈕名稱"
                   style="width: 500px; height: 100px"
                 />
@@ -106,8 +106,8 @@
   </div>
 </template>
 <script>
-import ScrollReveal from "scrollreveal";
 import { jarallax } from "jarallax";
+import ScrollReveal from "scrollreveal";
 
 export default {
   name: "Body",
