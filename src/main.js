@@ -9,9 +9,11 @@ import 'mutationobserver-shim'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
+import FreeLawyerConsult from './pages/FreeLawyerConsult.vue'
 // import PageNotFound from './pages/PageNotFound.vue'
 import Home from './pages/Home.vue'
 import Lawyer from './pages/Lawyer.vue'
+import LawyerConsult from './pages/LawyerConsult.vue'
 import SearchResult from './pages/SearchResult.vue'
 import UserCharge from './pages/UserCharge.vue'
 import store from './store'
@@ -38,6 +40,12 @@ const routes=[
   {path:'/lawyer',
   name:'Lawyer',
   component:Lawyer},
+  {path:'/FreeLawyerConsult',
+  name:'FreeLawyerConsult',
+  component:FreeLawyerConsult},
+  {path:'/LawyerConsult',
+  name:'LawyerConsult',
+  component:LawyerConsult},
   // {path:'*', component:PageNotFound}
 ]
 const router = new VueRouter({

@@ -6,25 +6,27 @@
         <div class="content">
           <div class="media-info">
             <li>
-              <a href="https://sec.gov.taipei/News_Content.aspx?n=224402C613AE51F3&sms=10B6E6F8F525E234&s=9FCDE8146D4D8DA8"
+              <a
+                href="https://sec.gov.taipei/News_Content.aspx?n=224402C613AE51F3&sms=10B6E6F8F525E234&s=9FCDE8146D4D8DA8"
                 >台北市政府法律諮詢服務櫃檯</a
               >
             </li>
             <li>
-              <a href="https://legal.tycg.gov.tw/home.jsp?id=295&parentpath=0,142,254"
+              <a
+                href="https://legal.tycg.gov.tw/home.jsp?id=295&parentpath=0,142,254"
                 >桃園市政府法律諮詢中心</a
               >
             </li>
             <li>
-              <a href="https://legal-aid.taichung.gov.tw/News/ContentView?PID=3">台中市政府市政大樓10樓</a>
+              <a href="https://legal-aid.taichung.gov.tw/News/ContentView?PID=3"
+                >台中市政府市政大樓10樓</a
+              >
             </li>
             <li>
               <a href="https://laf.chiayi.gov.tw/">嘉義市政府一樓法扶諮詢室</a>
             </li>
             <li>
-              <a href="https://www.lawchain.tw/%E6%B3%95%E5%BE%8B%E7%9F%A5%E8%AD%98%E5%AE%B6/77-%E5%90%84%E7%B8%A3%28%E5%B8%82%29%E6%94%BF%E5%BA%9C%E5%85%8D%E8%B2%BB%E6%B3%95%E5%BE%8B%E8%AB%AE%E8%A9%A2%E9%A0%90%E7%B4%84%E5%B0%88%E7%B7%9A"
-                >查看更多...</a
-              >
+              <router-link to="/FreeLawyerConsult"> 查看更多 </router-link> >
             </li>
           </div>
           <div class="jarallax">
@@ -49,11 +51,11 @@
           </div>
           <div class="text-box">
             <h3>找律師</h3>
-            <br>
+            <br />
             <p>
-              第一步：<br>
-              輸入律師姓名、案件類型或關鍵字。<br>
-              第二步：<br>
+              第一步：<br />
+              輸入律師姓名、案件類型或關鍵字。<br />
+              第二步：<br />
               查看判決書，選擇推薦律師。
             </p>
           </div>
@@ -84,7 +86,7 @@
           <h4 class="info-title">豐富的律師資訊</h4>
           <p>
             資料庫含括了11,000筆全台灣的律師資訊，讓找律師變得更簡單。
-            <br>
+            <br />
           </p>
         </div>
       </div>
@@ -93,8 +95,8 @@
 </template>
 
 <script>
-import ScrollReveal from "scrollreveal";
 import { jarallax } from "jarallax";
+import ScrollReveal from "scrollreveal";
 
 export default {
   name: "Body",
@@ -112,15 +114,27 @@ export default {
     ScrollReveal().reveal(".main-title", { delay: 100, origin: "left" });
     ScrollReveal().reveal(".sec-01 .image", { delay: 100, origin: "bottom" });
     ScrollReveal().reveal(".text-box", { delay: 100, origin: "right" });
-    ScrollReveal().reveal(".sec-02-box1", { delay: 100, origin: "bottom" ,distance:"100px"});
-    ScrollReveal().reveal(".sec-02-box2", { delay: 150, origin: "bottom" ,distance:"200px"});
-    ScrollReveal().reveal(".sec-02-box3", { delay: 200, origin: "bottom" ,distance:"300px"});
+    ScrollReveal().reveal(".sec-02-box1", {
+      delay: 100,
+      origin: "bottom",
+      distance: "100px",
+    });
+    ScrollReveal().reveal(".sec-02-box2", {
+      delay: 150,
+      origin: "bottom",
+      distance: "200px",
+    });
+    ScrollReveal().reveal(".sec-02-box3", {
+      delay: 200,
+      origin: "bottom",
+      distance: "300px",
+    });
     ScrollReveal().reveal(".media-info li", {
       delay: 100,
       origin: "top",
       interval: 200,
     });
-  }
+  },
 };
 </script>
 
@@ -137,12 +151,12 @@ export default {
   background-size: cover;
   background-attachment: fixed;
 }
-.sec-02 .content{
+.sec-02 .content {
   display: flex;
   padding-left: 10vw;
   padding-bottom: 10vh;
 }
-.sec-02 .content .text-box{
+.sec-02 .content .text-box {
   margin: 2rem;
 }
 .canvas {

@@ -24,7 +24,7 @@
       </div>
       <ul class="nav-links">
         <li><router-link to="/">首頁</router-link></li>
-        <li><router-link to="/">律師諮詢</router-link></li>
+        <li><router-link to="/LawyerConsult">律師諮詢</router-link></li>
         <li><router-link to="/lawyer">律師檢索</router-link></li>
         <li @click="showMsgBoxTwo">
           <router-link to="/UserCharge">升級Premium</router-link>
