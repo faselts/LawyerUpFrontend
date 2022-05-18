@@ -92,16 +92,21 @@ export default {
           searchQuery: this.$store.state.query,
         })
         .then((resp) => {
-          console.log(resp.data);
-          this.$store.state.results = resp.data.data;
+          if (resp.status === 200) {
+            console.log(resp.data);
+            this.$store.state.results = resp.data.data;
+          }else if(resp.status === 204){
+            this.$store.state.results = null;
+            window.alert("無資料");
+            
+          }
         })
         .catch(function (error) {
           if (error.response) {
             console.log(error.response.status);
-            window.alert("無資料");
           }
         });
-
+      this.$store.commit('clearResultp');
       axios
         .post("http://140.123.174.200/api/PredictionModel", {
           query: this.$store.state.query,
@@ -111,7 +116,7 @@ export default {
             (this.$store.state.resultp.second = response.data.second),
             (this.$store.state.resultp.third = response.data.third);
           console.log(response);
-          window.alert("finished!");
+          //window.alert("完成");
         });
     },
     clickburger() {
