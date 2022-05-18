@@ -166,7 +166,7 @@ export default {
           "基本功能：1. 一天提供使用者三次免費查尋關鍵字推薦律師資訊。2. 免費查詢判決書、律師資訊。3. 提供各地區免費律師諮詢管道資訊；付費功能：1. 無限制查詢關鍵字推薦律師資訊。2. 線上限時諮詢律師。（15分鐘/次）",
           {
             title: "付費資訊",
-            size: "sm",
+            size: "md",
             buttonSize: "sm",
             okVariant: "success",
             headerClass: "p-2 border-bottom-0",
