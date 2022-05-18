@@ -33,6 +33,23 @@
         <td>地址</td>
         <td>{{ response.address }}</td>
       </tr>
+      <tr>
+        <td id="casehistory">參與判決經驗</td>
+        <td>
+          <table class="table-sm">
+            <thead>
+              <td><b>案由</b></td>
+              <td><b>次數</b></td>
+            </thead>
+            <tbody>
+              <tr v-for="(value, name) in response.caseHistories" :key="name">
+                <td width="80%">{{name}}</td>
+                <td width="20%" align="right">{{value}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
     </table>
   </b-modal>
 </template>
@@ -48,6 +65,7 @@ export default {
   data() {
     return {
       response: this.getData(this.id),
+      caseHistoriesStr:undefined
     };
   },
   watch: {
@@ -66,15 +84,32 @@ export default {
           .then((resp) => {
             console.log(resp.data);
             this.response = resp.data;
+            console.log()
+            this.caseHistoriesStr = this.caseHistories(resp.data.caseHistories);
           })
           .catch((err) => {
             console.log(err);
           });
       }
     },
-  },
+    caseHistories(json){
+      let string = "";
+      if(json == null){
+        string = "無相關資料";
+      }else{
+        Object.keys(json).forEach(key => {
+          string += key + "&emsp;" + json[key] +"<br>";
+        });
+      }
+      return string;
+    },
+    
+  }
 };
 </script>
 
-<style>
+<style scoped>
+#casehistory{
+  vertical-align: top;
+}
 </style>

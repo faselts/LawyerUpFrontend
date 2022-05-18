@@ -2,7 +2,7 @@
   <div class="pagination">
     <select  id="select" v-model="input.page" v-on:change="GoTo"></select>
     <input type="checkbox" name="sex" v-model="input.sex" v-on:change="GoTo">
-    <label for="sex">Gender</label>
+    <label for="sex">依性別排序</label>
   </div>
 </template>
 

@@ -21,8 +21,16 @@
       <button class="close" @click="cancel"></button>
     </div>
     <div class="result">
+      
       <div class="record">
-        <div v-if="results == undefined">Loading...</div>
+        <div class="loadinggif" v-if="results === undefined">
+        <img src="../assets/loading.gif"  width="96px"/>
+        <h3>Loading...</h3>
+        </div>
+        <div class="loadinggif" v-if="results === null">
+        <h3>查無相關判決資料！</h3>
+        <h4 v-if='this.$store.state.resultp.first!=""'>可點擊右方推測案由查詢相關判決</h4>
+        </div>
         <div v-for="item in results" :key="item.id" class="data">
           <div class="information">
             <div class="space">{{ item.classification }}</div>
@@ -50,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div class="predict">
+      <div class="predict" v-if='this.$store.state.resultp.first!=""'>
         <h3>預測案由</h3>
         <button @click="turn(first)">
           {{ this.$store.state.resultp.first }}
@@ -268,5 +276,11 @@ button {
 .record {
   width: 60vw;
   margin-top: 3vh;
+  
+}
+.loadinggif{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
 </style>

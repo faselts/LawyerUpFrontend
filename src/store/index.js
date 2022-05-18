@@ -19,7 +19,11 @@ export default new Vuex.Store({
     // }
   },
   mutations: {
-    
+    clearResultp(state){
+      state.resultp.first = "";
+      state.resultp.second = "";
+      state.resultp.third = "";
+    }
   },
   actions:{
     

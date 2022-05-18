@@ -3,7 +3,7 @@
     <div class="sex">
       <select  id="select" v-model="input.page" v-on:change="GoTo"></select>
       <input type="checkbox" name="sex" v-model="input.sex" v-on:change="GoTo">
-      <h5 for="sex">Gender</h5>
+      <h5 for="sex">依性別排序</h5>
     </div>
     
     <div class="countyList">
