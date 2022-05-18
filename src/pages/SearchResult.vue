@@ -10,11 +10,12 @@
           <div class="courtCode">{{ eventDetail.courtCode }}</div>
         </div>
         <br />
-        <div class="beforeMain">{{ eventDetail.beforeMain }}</div>
-
+        <h3>主文</h3>
         <div class="mainContent">{{ eventDetail.mainContent }}</div>
+        <!-- <div class="beforeMain">{{ eventDetail.beforeMain }}</div> -->
+        <h3>事實及理由</h3>
         <div class="factReason">{{ eventDetail.factReason }}</div>
-
+        <h3>判決日期</h3>
         <div class="judgeDate">{{ eventDetail.judgeDate }}</div>
       </div>
       <button class="close" @click="cancel"></button>
