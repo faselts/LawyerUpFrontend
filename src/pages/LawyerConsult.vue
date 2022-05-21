@@ -90,14 +90,13 @@
           </li>
           <li>
             <div class="text-box sec-02-box3">
-              <router-link to="/FreeLawyerConsult">
-                <input
-                  type="button"
-                  value="Premium線上諮詢"
-                  name="按鈕名稱"
-                  style="width: 500px; height: 100px"
-                />
-              </router-link>
+              <input
+                type="button"
+                value="Premium線上諮詢"
+                name="按鈕名稱"
+                style="width: 500px; height: 100px"
+                onclick="location.href='https://forms.gle/wCzU2DYyEFmnFV9K7'"
+              />
             </div>
           </li>
         </ul>
